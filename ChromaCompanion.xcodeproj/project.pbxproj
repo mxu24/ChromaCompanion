@@ -442,8 +442,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UD3476G3Z8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ChromaCompanion/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access to camera";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Please allow access to photo library";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -469,8 +472,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UD3476G3Z8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ChromaCompanion/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access to camera";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Please allow access to photo library";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
