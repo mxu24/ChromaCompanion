@@ -1,20 +1,17 @@
-// With guidance from demo by iOS Academy on YouTube
-
 import UIKit
 import Vision
 import UIImageColors
 
-class ViewController: UIViewController{
+class ViewController: UIViewController {
     
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var button: UIButton!
-//    @IBOutlet var colorView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         imageView.backgroundColor = .white
-        button.setTitle("Take Picture", for: .normal)
+        button.setTitle("Take/Choose Picture", for: .normal)
         button.setTitleColor(.white, for: .normal)
     }
     
@@ -43,8 +40,7 @@ class ViewController: UIViewController{
     }
 }
 
-extension ViewController: UIImagePickerControllerDelegate,
-                          UINavigationControllerDelegate {
+extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
@@ -57,15 +53,15 @@ extension ViewController: UIImagePickerControllerDelegate,
             return
         }
         
-        // convert UIImage to CIImage
+        // Convert UIImage to CIImage
         guard let ciImage = CIImage(image: image) else {
             return
         }
         
-        // create objectness-based saliency request
+        // Create objectness-based saliency request
         let request = VNGenerateAttentionBasedSaliencyImageRequest()
         
-        // perform saliency request
+        // Perform saliency request
         let handler = VNImageRequestHandler(ciImage: ciImage, options: [:])
         DispatchQueue.global(qos: .userInitiated).async {
             do {
@@ -74,11 +70,11 @@ extension ViewController: UIImagePickerControllerDelegate,
                    let salientObject = results.first,
                    let salientRect = salientObject.salientObjects?.first?.boundingBox {
                     
-                    // normalized coordinates to image coordinates
+                    // Normalized coordinates to image coordinates
                     let imageRect = ciImage.extent
                     let normalizedSalientRect = VNImageRectForNormalizedRect(salientRect, Int(imageRect.width), Int(imageRect.height))
                     
-                    // crop image to salient rect
+                    // Crop image to salient rect
                     let croppedImage = ciImage.cropped(to: normalizedSalientRect)
                     let thumbnail = UIImage(ciImage: croppedImage)
                     
@@ -86,56 +82,71 @@ extension ViewController: UIImagePickerControllerDelegate,
                         self.imageView.image = thumbnail
                         self.extractColors(from: thumbnail)
                     }
-                    
-                    //                    let colors = thumbnail.getColors()
-                    //                    let background = colors.background
-                    //                    let primary = colors.primary
-                    //                    let secondary = colors.secondary
-                    //                    let detail = colors.detail
-                    //                    print(background)
-                    //                    print(primary)
-                    //                    print(secondary)
-                    //                    print(detail)
                 } else {
-                    // if no salient region found, use original image
+                    // If no salient region found, use original image
                     DispatchQueue.main.async {
                         self.imageView.image = image
+                        self.extractColors(from: image)
                     }
-                    
-                    //                    let colors = image.getColors()
-                    //                    let background = colors?.background
-                    //                    let primary = colors?.primary
-                    //                    let secondary = colors?.secondary
-                    //                    let detail = colors?.detail
                 }
             } catch {
                 print("Error performing saliency request: \(error)")
                 DispatchQueue.main.async {
                     self.imageView.image = image
+                    self.extractColors(from: image)
                 }
-                
-                //                let colors = image.getColors()
-                //                let background = colors?.background
-                //                let primary = colors?.primary
-                //                let secondary = colors?.secondary
-                //                let detail = colors?.detail
             }
         }
     }
     
-    
     private func extractColors(from image: UIImage) {
         image.getColors { colors in
             guard let colors = colors else { return }
-            let background = colors.background
-            let primary = colors.primary
-//            DispatchQueue.main.async {
-//                 self.colorView.backgroundColor = primary
-//             }
-            let secondary = colors.secondary
-            let detail = colors.detail
+            let background = colors.background ?? UIColor.black
+            let primary = colors.primary ?? UIColor.black
+            let secondary = colors.secondary ?? UIColor.black
+            let detail = colors.detail ?? UIColor.black
+            DispatchQueue.main.async {
+                self.presentColorAnalysisViewController(primary: primary, secondary: secondary, background: background, detail: detail)
+            }
             print("Background: \(background), Primary: \(primary), Secondary: \(secondary), Detail: \(detail)")
         }
     }
+    
+    private func presentColorAnalysisViewController(primary: UIColor, secondary: UIColor, background: UIColor, detail: UIColor) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let colorInfoVC = storyboard.instantiateViewController(withIdentifier: "ColorAnalysisViewController") as? ColorAnalysisViewController else {
+            return
+        }
+        
+        colorInfoVC.primaryColor = primary
+        colorInfoVC.secondaryColor = secondary
+        colorInfoVC.backgroundColor = background
+        colorInfoVC.detailColor = detail
+        
+        navigationController?.pushViewController(colorInfoVC, animated: true)
+    }
 }
 
+class ColorAnalysisViewController: UIViewController {
+    @IBOutlet weak var primaryColorView: UIView!
+    @IBOutlet weak var secondaryColorView: UIView!
+    @IBOutlet weak var backgroundColorView: UIView!
+    @IBOutlet weak var detailColorView: UIView!
+    
+    var primaryColor: UIColor?
+    var secondaryColor: UIColor?
+    var backgroundColor: UIColor?
+    var detailColor: UIColor?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        print("Background")
+        // Set the background colors of the views to display the colors
+//        primaryColorView.backgroundColor = primaryColor
+//        secondaryColorView.backgroundColor = secondaryColor
+//        backgroundColorView.backgroundColor = backgroundColor
+//        detailColorView.backgroundColor = detailColor
+    }
+}

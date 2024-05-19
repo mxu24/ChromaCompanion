@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Color Cam-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ChromaCompanion" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,14 +23,14 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vlq-GV-Rvh">
-                                <rect key="frame" x="102" y="681" width="189.66666666666663" height="49.666666666666686"/>
+                                <rect key="frame" x="92" y="680" width="209" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGrayColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
+                                        <real key="value" value="24.5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -42,7 +42,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="tintColor" systemColor="systemGray5Color"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Color Cam" image="camera" catalog="system" selectedImage="camera.fill" id="dvh-bQ-HsS"/>
+                    <navigationItem key="navigationItem" id="4vN-me-goQ"/>
                     <connections>
                         <outlet property="button" destination="Vlq-GV-Rvh" id="azu-i6-5xD"/>
                         <outlet property="imageView" destination="2Ud-9b-7Ev" id="1NY-CU-xfy"/>
@@ -50,22 +50,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-321.37404580152668" y="694.36619718309862"/>
+            <point key="canvasLocation" x="605.3435114503817" y="694.36619718309862"/>
         </scene>
-        <!--View Controller-->
+        <!--Color Analysis-->
         <scene sceneID="TXA-kf-Bep">
             <objects>
-                <viewController id="Hjg-On-egj" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ColorAnalysisViewController" title="Color Analysis" id="Hjg-On-egj" customClass="ColorAnalysisViewController" customModule="ChromaCompanion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PtQ-QG-3Mh">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxm-eV-qqx">
+                                <rect key="frame" x="175" y="274" width="41" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="xON-pY-vNM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eb6-dU-ClD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-326" y="1402"/>
+            <point key="canvasLocation" x="-935" y="-18"/>
         </scene>
         <!--Aesthetics-->
         <scene sceneID="n33-8O-eYb">
@@ -82,7 +91,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hU9-sy-4US" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="587" y="694"/>
+            <point key="canvasLocation" x="1512.2137404580153" y="693.66197183098598"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="PvZ-nJ-GMu">
@@ -95,13 +104,32 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="P6P-s2-rCT"/>
+                        <segue destination="Td9-su-iNl" kind="relationship" relationship="viewControllers" id="P6P-s2-rCT"/>
                         <segue destination="bEl-Df-LrO" kind="relationship" relationship="viewControllers" id="5RG-Of-h14"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zlk-fz-SVf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="119.84732824427481" y="-17.605633802816904"/>
+        </scene>
+        <!--Color Cam-->
+        <scene sceneID="iXm-mv-xFD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Td9-su-iNl" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Color Cam" image="camera" catalog="system" selectedImage="camera.fill" id="dvh-bQ-HsS"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TlL-nr-Eet">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Tt2-pO-nBO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fms-pg-Ifh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-321.37404580152668" y="694.36619718309862"/>
         </scene>
     </scenes>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
