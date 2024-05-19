@@ -10,7 +10,7 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        imageView.backgroundColor = .systemBlue
+        imageView.backgroundColor = .white
         button.setTitle("Take Picture", for: .normal)
         button.setTitleColor(.white, for: .normal)
     }
