@@ -7,7 +7,7 @@ The proposed solution would be a mobile application designed to address the need
 
 
 FOR COLOR TO WORK:
-Click on Chroma Companion and go to build settings. 
+Click on Chroma Companion in XCode and go to build settings. 
 1. Search ENABLE_USER_SCRIPT_SANDBOXING, and for all 3 targets (ChromaCompanion, ChromaCompanionTests, ChromaCompanionUITests), set it to No
 https://stackoverflow.com/questions/76590131/error-while-build-ios-app-in-xcode-sandbox-rsync-samba-13105-deny1-file-w
 2. Search ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES, for all 3 targets, click on Yes, replace it with $(inherited) 

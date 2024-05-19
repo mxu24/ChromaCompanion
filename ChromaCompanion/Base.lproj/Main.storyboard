@@ -16,16 +16,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Ud-9b-7Ev">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ud-9b-7Ev">
                                 <rect key="frame" x="20" y="79" width="353" height="671"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vlq-GV-Rvh">
-                                <rect key="frame" x="101.66666666666667" y="389.66666666666669" width="189.66666666666663" height="49.666666666666686"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vlq-GV-Rvh">
+                                <rect key="frame" x="102" y="681" width="189.66666666666663" height="49.666666666666686"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGrayColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="didTapButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="S7g-xb-XDw"/>
                                 </connections>
@@ -34,16 +41,6 @@
                         <viewLayoutGuide key="safeArea" id="oh9-97-n6H"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="tintColor" systemColor="systemGray5Color"/>
-                        <constraints>
-                            <constraint firstItem="oh9-97-n6H" firstAttribute="bottom" secondItem="2Ud-9b-7Ev" secondAttribute="bottom" constant="19" id="1Ie-LJ-38r"/>
-                            <constraint firstItem="2Ud-9b-7Ev" firstAttribute="leading" secondItem="oh9-97-n6H" secondAttribute="leading" constant="20" id="J7W-P6-Adv"/>
-                            <constraint firstItem="2Ud-9b-7Ev" firstAttribute="centerY" secondItem="Vlq-GV-Rvh" secondAttribute="centerY" id="Mef-8d-oO4"/>
-                            <constraint firstItem="Vlq-GV-Rvh" firstAttribute="leading" secondItem="oh9-97-n6H" secondAttribute="leading" constant="101.66666666666669" id="aG2-Sb-Ue5"/>
-                            <constraint firstItem="2Ud-9b-7Ev" firstAttribute="centerX" secondItem="Vlq-GV-Rvh" secondAttribute="centerX" id="eOa-9n-bCZ"/>
-                            <constraint firstItem="2Ud-9b-7Ev" firstAttribute="top" secondItem="oh9-97-n6H" secondAttribute="top" constant="20" id="fDD-L3-5a4"/>
-                            <constraint firstItem="2Ud-9b-7Ev" firstAttribute="centerX" secondItem="UgH-26-sJ8" secondAttribute="centerX" id="i73-fD-jIi"/>
-                            <constraint firstItem="Vlq-GV-Rvh" firstAttribute="top" secondItem="oh9-97-n6H" secondAttribute="top" constant="330.66666666666663" id="qFP-Ro-slW"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Color Cam" image="camera" catalog="system" selectedImage="camera.fill" id="dvh-bQ-HsS"/>
                     <connections>
@@ -54,6 +51,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-321.37404580152668" y="694.36619718309862"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="TXA-kf-Bep">
+            <objects>
+                <viewController id="Hjg-On-egj" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PtQ-QG-3Mh">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="xON-pY-vNM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eb6-dU-ClD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-326" y="1402"/>
         </scene>
         <!--Aesthetics-->
         <scene sceneID="n33-8O-eYb">

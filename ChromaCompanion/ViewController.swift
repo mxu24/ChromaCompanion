@@ -2,12 +2,13 @@
 
 import UIKit
 import Vision
-//import UIImageColors
+import UIImageColors
 
 class ViewController: UIViewController{
     
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var button: UIButton!
+//    @IBOutlet var colorView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,8 +19,24 @@ class ViewController: UIViewController{
     }
     
     @IBAction func didTapButton() {
+        let actionSheet = UIAlertController(title: "Select Picture", message: "Choose a source", preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
+            self.presentImagePicker(sourceType: .camera)
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { _ in
+            self.presentImagePicker(sourceType: .photoLibrary)
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(actionSheet, animated: true, completion: nil)
+    }
+    
+    private func presentImagePicker(sourceType: UIImagePickerController.SourceType) {
         let picker = UIImagePickerController()
-        picker.sourceType = .camera
+        picker.sourceType = sourceType
         picker.allowsEditing = true
         picker.delegate = self
         present(picker, animated: true)
@@ -67,28 +84,29 @@ extension ViewController: UIImagePickerControllerDelegate,
                     
                     DispatchQueue.main.async {
                         self.imageView.image = thumbnail
+                        self.extractColors(from: thumbnail)
                     }
                     
-//                    let colors = thumbnail.getColors()
-//                    let background = colors.background
-//                    let primary = colors.primary
-//                    let secondary = colors.secondary
-//                    let detail = colors.detail
-//                    print(background)
-//                    print(primary)
-//                    print(secondary)
-//                    print(detail)
+                    //                    let colors = thumbnail.getColors()
+                    //                    let background = colors.background
+                    //                    let primary = colors.primary
+                    //                    let secondary = colors.secondary
+                    //                    let detail = colors.detail
+                    //                    print(background)
+                    //                    print(primary)
+                    //                    print(secondary)
+                    //                    print(detail)
                 } else {
                     // if no salient region found, use original image
                     DispatchQueue.main.async {
                         self.imageView.image = image
                     }
                     
-//                    let colors = image.getColors()
-//                    let background = colors?.background
-//                    let primary = colors?.primary
-//                    let secondary = colors?.secondary
-//                    let detail = colors?.detail
+                    //                    let colors = image.getColors()
+                    //                    let background = colors?.background
+                    //                    let primary = colors?.primary
+                    //                    let secondary = colors?.secondary
+                    //                    let detail = colors?.detail
                 }
             } catch {
                 print("Error performing saliency request: \(error)")
@@ -96,17 +114,28 @@ extension ViewController: UIImagePickerControllerDelegate,
                     self.imageView.image = image
                 }
                 
-//                let colors = image.getColors()
-//                let background = colors?.background
-//                let primary = colors?.primary
-//                let secondary = colors?.secondary
-//                let detail = colors?.detail
+                //                let colors = image.getColors()
+                //                let background = colors?.background
+                //                let primary = colors?.primary
+                //                let secondary = colors?.secondary
+                //                let detail = colors?.detail
             }
         }
     }
-
     
     
-
+    private func extractColors(from image: UIImage) {
+        image.getColors { colors in
+            guard let colors = colors else { return }
+            let background = colors.background
+            let primary = colors.primary
+//            DispatchQueue.main.async {
+//                 self.colorView.backgroundColor = primary
+//             }
+            let secondary = colors.secondary
+            let detail = colors.detail
+            print("Background: \(background), Primary: \(primary), Secondary: \(secondary), Detail: \(detail)")
+        }
+    }
 }
 
