@@ -1,0 +1,6 @@
+framework module Pods_ChromaCompanion_ChromaCompanionUITests {
+  umbrella header "Pods-ChromaCompanion-ChromaCompanionUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

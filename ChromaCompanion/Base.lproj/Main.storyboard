@@ -20,16 +20,10 @@
                                 <rect key="frame" x="20" y="79" width="353" height="671"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="671" id="WeH-M8-Qlh"/>
-                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vlq-GV-Rvh">
-                                <rect key="frame" x="101.66666666666669" y="389.66666666666669" width="190" height="49"/>
+                                <rect key="frame" x="101.66666666666667" y="389.66666666666669" width="189.66666666666663" height="49.666666666666686"/>
                                 <color key="backgroundColor" systemColor="systemGrayColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="qRa-SL-qj5"/>
-                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
@@ -41,14 +35,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="tintColor" systemColor="systemGray5Color"/>
                         <constraints>
-                            <constraint firstItem="oh9-97-n6H" firstAttribute="trailing" secondItem="2Ud-9b-7Ev" secondAttribute="trailing" constant="20" id="Bh0-Qz-bBE"/>
-                            <constraint firstItem="Vlq-GV-Rvh" firstAttribute="top" secondItem="oh9-97-n6H" secondAttribute="top" constant="330.5" id="Fe7-PO-tA9"/>
-                            <constraint firstItem="Vlq-GV-Rvh" firstAttribute="leading" secondItem="oh9-97-n6H" secondAttribute="leading" constant="101.5" id="GgK-MO-q74"/>
-                            <constraint firstItem="oh9-97-n6H" firstAttribute="bottom" secondItem="2Ud-9b-7Ev" secondAttribute="bottom" constant="19" id="MjZ-fu-jOc"/>
-                            <constraint firstItem="oh9-97-n6H" firstAttribute="bottom" secondItem="Vlq-GV-Rvh" secondAttribute="bottom" constant="330.5" id="T9J-ge-Ny9"/>
-                            <constraint firstItem="2Ud-9b-7Ev" firstAttribute="top" secondItem="oh9-97-n6H" secondAttribute="top" constant="20" id="V0F-xA-HZj"/>
-                            <constraint firstItem="2Ud-9b-7Ev" firstAttribute="leading" secondItem="oh9-97-n6H" secondAttribute="leading" constant="20" id="lpR-WR-3JH"/>
-                            <constraint firstItem="oh9-97-n6H" firstAttribute="trailing" secondItem="Vlq-GV-Rvh" secondAttribute="trailing" constant="101.5" id="tea-3n-pzx"/>
+                            <constraint firstItem="oh9-97-n6H" firstAttribute="bottom" secondItem="2Ud-9b-7Ev" secondAttribute="bottom" constant="19" id="1Ie-LJ-38r"/>
+                            <constraint firstItem="2Ud-9b-7Ev" firstAttribute="leading" secondItem="oh9-97-n6H" secondAttribute="leading" constant="20" id="J7W-P6-Adv"/>
+                            <constraint firstItem="2Ud-9b-7Ev" firstAttribute="centerY" secondItem="Vlq-GV-Rvh" secondAttribute="centerY" id="Mef-8d-oO4"/>
+                            <constraint firstItem="Vlq-GV-Rvh" firstAttribute="leading" secondItem="oh9-97-n6H" secondAttribute="leading" constant="101.66666666666669" id="aG2-Sb-Ue5"/>
+                            <constraint firstItem="2Ud-9b-7Ev" firstAttribute="centerX" secondItem="Vlq-GV-Rvh" secondAttribute="centerX" id="eOa-9n-bCZ"/>
+                            <constraint firstItem="2Ud-9b-7Ev" firstAttribute="top" secondItem="oh9-97-n6H" secondAttribute="top" constant="20" id="fDD-L3-5a4"/>
+                            <constraint firstItem="2Ud-9b-7Ev" firstAttribute="centerX" secondItem="UgH-26-sJ8" secondAttribute="centerX" id="i73-fD-jIi"/>
+                            <constraint firstItem="Vlq-GV-Rvh" firstAttribute="top" secondItem="oh9-97-n6H" secondAttribute="top" constant="330.66666666666663" id="qFP-Ro-slW"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Color Cam" image="camera" catalog="system" selectedImage="camera.fill" id="dvh-bQ-HsS"/>
@@ -108,10 +102,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
