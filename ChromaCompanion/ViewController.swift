@@ -46,7 +46,7 @@ extension ViewController: UIImagePickerControllerDelegate,
         }
         
         // create objectness-based saliency request
-        let request = VNGenerateObjectnessBasedSaliencyImageRequest()
+        let request = VNGenerateAttentionBasedSaliencyImageRequest()
         
         // perform saliency request
         let handler = VNImageRequestHandler(ciImage: ciImage, options: [:])
