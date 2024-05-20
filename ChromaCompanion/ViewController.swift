@@ -53,51 +53,53 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
             return
         }
+        self.imageView.image = image
+        extractColors(from: image)
         
-        // Convert UIImage to CIImage
-        guard let ciImage = CIImage(image: image) else {
-            return
-        }
-        
-        // Create attention-based saliency request
-        let request = VNGenerateAttentionBasedSaliencyImageRequest()
-        
-        // Perform saliency request
-        let handler = VNImageRequestHandler(ciImage: ciImage, options: [:])
-        DispatchQueue.global(qos: .userInitiated).async {
-            do {
-                try handler.perform([request])
-                if let results = request.results,
-                   let salientObject = results.first,
-                   let salientRect = salientObject.salientObjects?.first?.boundingBox {
-                    
-                    // Normalized coordinates to image coordinates
-                    let imageRect = ciImage.extent
-                    let normalizedSalientRect = VNImageRectForNormalizedRect(salientRect, Int(imageRect.width), Int(imageRect.height))
-                    
-                    // Crop image to salient rect
-                    let croppedImage = ciImage.cropped(to: normalizedSalientRect)
-                    let thumbnail = UIImage(ciImage: croppedImage)
-                    
-                    DispatchQueue.main.async {
-                        self.imageView.image = thumbnail
-                        self.extractColors(from: thumbnail)
-                    }
-                } else {
-                    // If no salient region found, use original image
-                    DispatchQueue.main.async {
-                        self.imageView.image = image
-                        self.extractColors(from: image)
-                    }
-                }
-            } catch {
-                print("Error performing saliency request: \(error)")
-                DispatchQueue.main.async {
-                    self.imageView.image = image
-                    self.extractColors(from: image)
-                }
-            }
-        }
+//        // Convert UIImage to CIImage
+//        guard let ciImage = CIImage(image: image) else {
+//            return
+//        }
+//        
+//        // Create attention-based saliency request
+//        let request = VNGenerateAttentionBasedSaliencyImageRequest()
+//        
+//        // Perform saliency request
+//        let handler = VNImageRequestHandler(ciImage: ciImage, options: [:])
+//        DispatchQueue.global(qos: .userInitiated).async {
+//            do {
+//                try handler.perform([request])
+//                if let results = request.results,
+//                   let salientObject = results.first,
+//                   let salientRect = salientObject.salientObjects?.first?.boundingBox {
+//                    
+//                    // Normalized coordinates to image coordinates
+//                    let imageRect = ciImage.extent
+//                    let normalizedSalientRect = VNImageRectForNormalizedRect(salientRect, Int(imageRect.width), Int(imageRect.height))
+//                    
+//                    // Crop image to salient rect
+//                    let croppedImage = ciImage.cropped(to: normalizedSalientRect)
+//                    let thumbnail = UIImage(ciImage: croppedImage)
+//                    
+//                    DispatchQueue.main.async {
+//                        self.imageView.image = thumbnail
+//                        self.extractColors(from: thumbnail)
+//                    }
+//                } else {
+//                    // If no salient region found, use original image
+//                    DispatchQueue.main.async {
+//                        self.imageView.image = image
+//                        self.extractColors(from: image)
+//                    }
+//                }
+//            } catch {
+//                print("Error performing saliency request: \(error)")
+//                DispatchQueue.main.async {
+//                    self.imageView.image = image
+//                    self.extractColors(from: image)
+//                }
+//            }
+//        }
     }
     
     private func extractColors(from image: UIImage) {
@@ -107,14 +109,31 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             let primary = colors.primary ?? UIColor.black
             let secondary = colors.secondary ?? UIColor.black
             let detail = colors.detail ?? UIColor.black
+            
+            
+//            let backgroundColorName = background.accessibilityName
+//            let primaryColorName = primary.accessibilityName
+//            let secondaryColorName = secondary.accessibilityName
+//            let detailColorName = detail.accessibilityName
+            
+            let backgroundColorName = findClosestColorName(to: background)
+            let primaryColorName = findClosestColorName(to: primary)
+            let secondaryColorName = findClosestColorName(to: secondary)
+            let detailColorName = findClosestColorName(to: detail)
+            
             DispatchQueue.main.async {
-                self.presentColorAnalysisViewController(primary: primary, secondary: secondary, background: background, detail: detail)
+                self.presentColorAnalysisViewController(primary: primary, secondary: secondary, background: background, detail: detail, primaryName: primaryColorName, secondaryName: secondaryColorName, backgroundName: backgroundColorName, detailName: detailColorName)
             }
+            print(backgroundColorName)
+            print(primaryColorName)
+            print(secondaryColorName)
+            print(detailColorName)
+            
             print("Background: \(background), Primary: \(primary), Secondary: \(secondary), Detail: \(detail)")
         }
     }
     
-    private func presentColorAnalysisViewController(primary: UIColor, secondary: UIColor, background: UIColor, detail: UIColor) {
+    private func presentColorAnalysisViewController(primary: UIColor, secondary: UIColor, background: UIColor, detail: UIColor, primaryName: String, secondaryName: String, backgroundName: String, detailName: String) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let colorInfoVC = storyboard.instantiateViewController(withIdentifier: "ColorAnalysisViewController") as? ColorAnalysisViewController else {
             return
@@ -124,6 +143,10 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         colorInfoVC.secondaryColor = secondary
         colorInfoVC.backgroundColor = background
         colorInfoVC.detailColor = detail
+        colorInfoVC.primaryColorName = primaryName
+        colorInfoVC.secondaryColorName = secondaryName
+        colorInfoVC.backgroundColorName = backgroundName
+        colorInfoVC.detailColorName = detailName
         
         navigationController?.pushViewController(colorInfoVC, animated: true)
     }
@@ -135,10 +158,20 @@ class ColorAnalysisViewController: UIViewController {
     @IBOutlet weak var backgroundColorView: UIView!
     @IBOutlet weak var detailColorView: UIView!
     
+    @IBOutlet weak var primaryColorLabel: UILabel!
+    @IBOutlet weak var secondaryColorLabel: UILabel!
+    @IBOutlet weak var backgroundColorLabel: UILabel!
+    @IBOutlet weak var detailColorLabel: UILabel!
+    
     var primaryColor: UIColor?
     var secondaryColor: UIColor?
     var backgroundColor: UIColor?
     var detailColor: UIColor?
+    
+    var primaryColorName: String?
+    var secondaryColorName: String?
+    var backgroundColorName: String?
+    var detailColorName: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -169,5 +202,71 @@ class ColorAnalysisViewController: UIViewController {
         } else {
             detailColorView.backgroundColor = UIColor.clear
         }
+        
+        primaryColorLabel.text = primaryColorName
+        secondaryColorLabel.text = secondaryColorName
+        backgroundColorLabel.text = backgroundColorName
+        detailColorLabel.text = detailColorName
     }
+}
+
+struct ColorName {
+    let name: String
+    let red: CGFloat
+    let green: CGFloat
+    let blue: CGFloat
+}
+
+let predefinedColors: [ColorName] = [
+    //Red
+    ColorName(name: "Bright Red", red: 1.0, green: 0.0, blue: 0.0),
+    ColorName(name: "Pastel Red", red: 0.91, green: 0.663, blue: 0.663),
+    
+    //Pink
+    ColorName(name: "Soft Pink", red: 1, green: 0.816, blue: 0.813),
+    
+    //Yellow
+    
+    //Green
+    ColorName(name: "Green", red: 0.0, green: 1.0, blue: 0.0),
+    ColorName(name: "Lime", red: 0.745, green: 1.0, blue: 0.369),
+    
+    //Blue
+    ColorName(name: "Blue", red: 0.0, green: 0.0, blue: 1.0),
+    
+    //Purple
+    
+    //Black, White, Gray
+    ColorName(name: "Black", red: 0.0, green: 0.0, blue: 0.0),
+    ColorName(name: "Light Gray", red: 0.89, green: 0.89, blue: 0.89),
+    ColorName(name: "Medium Gray", red: 0.61, green: 0.61, blue: 0.61),
+    ColorName(name: "Dark Gray", red: 0.38, green: 0.38, blue: 0.38),
+    ColorName(name: "White", red: 1.0, green: 1.0, blue: 1.0),
+    // Add more colors as needed
+]
+
+func euclideanDistance(color1: (CGFloat, CGFloat, CGFloat), color2: (CGFloat, CGFloat, CGFloat)) -> CGFloat {
+    return sqrt(pow(color1.0 - color2.0, 2) + pow(color1.1 - color2.1, 2) + pow(color1.2 - color2.2, 2))
+}
+
+func findClosestColorName(to color: UIColor) -> String {
+    guard let components = color.cgColor.components, components.count >= 3 else {
+        return "Unknown"
+    }
+    
+    let inputColor = (components[0], components[1], components[2])
+    var closestColor: ColorName?
+    var smallestDistance: CGFloat = .greatestFiniteMagnitude
+    
+    for predefinedColor in predefinedColors {
+        let predefinedRGB = (predefinedColor.red, predefinedColor.green, predefinedColor.blue)
+        let distance = euclideanDistance(color1: inputColor, color2: predefinedRGB)
+        
+        if distance < smallestDistance {
+            smallestDistance = distance
+            closestColor = predefinedColor
+        }
+    }
+    
+    return closestColor?.name ?? "Unknown"
 }
