@@ -3,6 +3,7 @@ import Vision
 import UIImageColors
 import MLKit
 import PhotosUI
+import CropViewController
 
 class ViewController: UIViewController {
     
@@ -10,6 +11,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var overlayView: OverlayView!
     @IBOutlet var button: UIButton!
     private var objectDetector: ObjectDetector?
+    private var detectedObjectFrame: CGRect?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,25 +83,54 @@ class ViewController: UIViewController {
 
     
     func setupOverlayView(image: UIImage, detectedObjects: [Object]) {
-        let colorArray: [UIColor] = [
-            .red,
-            .green,
-            .blue,
-            .yellow,
-            .magenta,
-            .cyan,
-            .black,
-        ]
-        
-        for i in 0..<detectedObjects.count {
-            let convertedRect = self.imageView.convertRect(fromImageRect: detectedObjects[i].frame)
-            let overlayObject: OverlayObject = OverlayObject(rect: convertedRect,
-                                                             color: colorArray[i % colorArray.count])
-            
-            overlayView.overlayObjects.append(overlayObject)
-        }
-        
+//        let colorArray: [UIColor] = [
+//            .red,
+//            .green,
+//            .blue,
+//            .yellow,
+//            .magenta,
+//            .cyan,
+//            .black,
+//        ]
+//        
+//        for i in 0..<detectedObjects.count {
+//            let convertedRect = self.imageView.convertRect(fromImageRect: detectedObjects[i].frame)
+//            let overlayObject: OverlayObject = OverlayObject(rect: convertedRect,
+//                                                             color: colorArray[i % colorArray.count])
+//            
+//            overlayView.overlayObjects.append(overlayObject)
+//        }
+        overlayView.overlayObjects = []
         overlayView.setNeedsDisplay()
+        if let firstObjectFrame = detectedObjects.first?.frame {
+                    self.presentCropViewController(for: image, with: firstObjectFrame)
+                }
+    }
+    
+    private func presentCropViewController(for image: UIImage, with frame: CGRect) {
+        let cropViewController = CropViewController(croppingStyle: .default, image: image)
+        cropViewController.delegate = self
+        
+        let imageFrame = imageView.convertRect(fromImageRect: frame)
+        let initialCropFrame = CGRect(x: imageFrame.origin.x * image.size.width / imageView.bounds.width,
+                                      y: imageFrame.origin.y * image.size.height / imageView.bounds.height,
+                                      width: imageFrame.width * image.size.width / imageView.bounds.width,
+                                      height: imageFrame.height * image.size.height / imageView.bounds.height)
+        cropViewController.imageCropFrame = initialCropFrame
+        
+        present(cropViewController, animated: true, completion: nil)
+    }
+}
+
+extension ViewController: CropViewControllerDelegate {
+    func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        cropViewController.dismiss(animated: true, completion: nil)
+        imageView.image = image
+        extractColors(from: image) // Call the extractColors function with the cropped image
+    }
+    
+    func cropViewController(_ cropViewController: CropViewController, didFinishCancelled cancelled: Bool) {
+        cropViewController.dismiss(animated: true, completion: nil)
     }
 }
 
