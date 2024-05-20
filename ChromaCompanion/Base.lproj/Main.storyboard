@@ -127,7 +127,7 @@
                         <color key="backgroundColor" red="0.94509803921568625" green="0.94901960784313721" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" red="0.94509803921568625" green="0.94901960784313721" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
-                    <navigationItem key="navigationItem" title="ChromaCompanion" id="dKs-nH-NCg"/>
+                    <navigationItem key="navigationItem" title="ChromaCompanion" id="qUY-OA-MVS"/>
                     <connections>
                         <outlet property="backgroundColorLabel" destination="yg9-Sp-fip" id="Vp4-Bd-zV3"/>
                         <outlet property="backgroundColorView" destination="4e1-Ky-RIN" id="pux-pN-6Eo"/>

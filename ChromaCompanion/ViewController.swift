@@ -364,29 +364,56 @@ struct ColorName {
 let predefinedColors: [ColorName] = [
     //Red
     ColorName(name: "Bright Red", red: 1.0, green: 0.0, blue: 0.0),
-    ColorName(name: "Pastel Red", red: 0.91, green: 0.663, blue: 0.663),
-    
+    ColorName(name: "Red", red: 0.816, green: 0.192, blue: 0.176),
+    ColorName(name: "Cherry Red", red: 0.6, green: 0.059, blue: 1),
+    ColorName(name: "Scarlet Red", red: 0.565, green: 0.051, blue: 0.035),
+    ColorName(name: "Rasberry", red: 0.827, green: 0.102, blue: 0.22),
+    ColorName(name: "Maroon", red: 0.502, green: 0.102, blue: 0.22),
+        
     //Pink
-    ColorName(name: "Soft Pink", red: 1, green: 0.816, blue: 0.813),
-    
+    ColorName(name: "Light Pink", red: 1, green: 0.714, blue: 0.757),
+    ColorName(name: "Dark Pink", red: 0.906, green: 0.329, blue: 0.502),
+    ColorName(name: "Hot Pink", red: 1, green: 0.412, blue: 0.706),
+    ColorName(name: "Pastel Pink", red: 0.996, green: 0.773, blue: 0.898),
+    ColorName(name: "Salmon", red: 0.992, green: 0.671, blue: 0.624),
+    ColorName(name: "Coral", red: 0.996, green: 0.49, blue: 0.416),
+
+    //Orange
+
     //Yellow
-    
+     ColorName(name: "Bright Yellow", red: 1, green: 0.984, blue: 0),
+       
     //Green
-    ColorName(name: "Green", red: 0.0, green: 1.0, blue: 0.0),
+    ColorName(name: "Bright Green", red: 0.0, green: 1.0, blue: 0.0),
+    ColorName(name: "Light Green", red: 0.565, green: 0.933, blue: 0.1),
+    ColorName(name: "Dark Green", red: 0.0, green: 0.392, blue: 0.0),
+    ColorName(name: "Mint Green", red: 0.596, green: 0.984, blue: 0.596),
+    ColorName(name: "Olive", red: 0.439, green: 0.51, blue: 0.22),
+    ColorName(name: "Dark Olive", red: 0.333, green: 0.42, blue: 0.184),
     ColorName(name: "Lime", red: 0.745, green: 1.0, blue: 0.369),
-    
+    ColorName(name: "Army Green", red: 0.294, green: 0.325, blue: 0.125),
+    ColorName(name: "Yellow Green", red: 0.678, green: 1, blue: 0.184),
+    ColorName(name: "Sea Green", red: 0.18, green: 0.545, blue: 0.341),
+
     //Blue
     ColorName(name: "Blue", red: 0.0, green: 0.0, blue: 1.0),
-    
+    ColorName(name: "Navy Blue", red: 0.0, green: 0.0, blue: 0.502),
+    ColorName(name: "Teal", red: 0.0, green: 0.651, blue: 0.651),
+    ColorName(name: "Baby Blue", red: 0.537, green: 0.812, blue: 0.941),
+    ColorName(name: "Sky Blue", red: 0.584, green: 0.784, blue: 0.847),
+    ColorName(name: "Turquoise", red: 0.247, green: 0.878, blue: 0.816),
+    ColorName(name: "Royal Blue", red: 0.067, green: 0.118, blue: 0.424),
+    ColorName(name: "Azure Blue", red: 0, green: 0.498, blue: 1),
+        
     //Purple
-    
+        
     //Black, White, Gray
     ColorName(name: "Black", red: 0.0, green: 0.0, blue: 0.0),
     ColorName(name: "Light Gray", red: 0.89, green: 0.89, blue: 0.89),
     ColorName(name: "Medium Gray", red: 0.61, green: 0.61, blue: 0.61),
     ColorName(name: "Dark Gray", red: 0.38, green: 0.38, blue: 0.38),
     ColorName(name: "White", red: 1.0, green: 1.0, blue: 1.0),
-    // Add more colors as needed
+
 ]
 
 func euclideanDistance(color1: (CGFloat, CGFloat, CGFloat), color2: (CGFloat, CGFloat, CGFloat)) -> CGFloat {
