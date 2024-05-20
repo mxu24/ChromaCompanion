@@ -70,6 +70,7 @@ class ViewController: UIViewController {
             
             guard let detectedObjects = detectedObjects,
                   !detectedObjects.isEmpty else {
+                self.performSaliencyDetection(image: image)
                 return
             }
             
@@ -79,6 +80,39 @@ class ViewController: UIViewController {
             }
         }
         
+    }
+    
+    private func performSaliencyDetection(image: UIImage) {
+        guard let ciImage = CIImage(image: image) else { return }
+        
+        let request = VNGenerateAttentionBasedSaliencyImageRequest()
+        
+        let handler = VNImageRequestHandler(ciImage: ciImage, options: [:])
+        do {
+            try handler.perform([request])
+            if let results = request.results,
+               let salientObject = results.first,
+               let salientRect = salientObject.salientObjects?.first?.boundingBox {
+                
+                print("Salient object at: \(salientRect)")
+                
+                let imageRect = ciImage.extent
+                let normalizedSalientRect = VNImageRectForNormalizedRect(salientRect, Int(imageRect.width), Int(imageRect.height))
+                
+                DispatchQueue.main.async {
+                    self.presentCropViewController(for: image, with: normalizedSalientRect)
+                }
+                
+//                DispatchQueue.main.async {
+//                    let customObject = DetectedObject(frame: normalizedSalientRect, id: 0, label: "Salient Object", confidence: 1.0)
+//                    self.setupOverlayView(image: image, detectedObjects: [customObject])
+//                }
+            } else {
+                print("No salient regions found.")
+            }
+        } catch {
+            print("Error performing saliency request: \(error)")
+        }
     }
 
     
@@ -119,6 +153,20 @@ class ViewController: UIViewController {
         cropViewController.imageCropFrame = initialCropFrame
         
         present(cropViewController, animated: true, completion: nil)
+    }
+    
+    private func convertToImageRect(fromViewRect viewRect: CGRect, inImage image: UIImage) -> CGRect {
+        let imageViewSize = imageView.frame.size
+        let imageSize = image.size
+        
+        let scaleX = imageSize.width / imageViewSize.width
+        let scaleY = imageSize.height / imageViewSize.height
+        
+        let imageRect = CGRect(x: viewRect.origin.x * scaleX,
+                               y: viewRect.origin.y * scaleY,
+                               width: viewRect.width * scaleX,
+                               height: viewRect.height * scaleY)
+        return imageRect
     }
 }
 
@@ -211,12 +259,6 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             let primary = colors.primary ?? UIColor.black
             let secondary = colors.secondary ?? UIColor.black
             let detail = colors.detail ?? UIColor.black
-            
-            
-//            let backgroundColorName = background.accessibilityName
-//            let primaryColorName = primary.accessibilityName
-//            let secondaryColorName = secondary.accessibilityName
-//            let detailColorName = detail.accessibilityName
             
             let backgroundColorName = findClosestColorName(to: background)
             let primaryColorName = findClosestColorName(to: primary)
