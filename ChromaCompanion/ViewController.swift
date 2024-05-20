@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didTapButton() {
+        print("didTapButton called")
         let actionSheet = UIAlertController(title: "Select Picture", message: "Choose a source", preferredStyle: .actionSheet)
         
         actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
@@ -143,10 +144,30 @@ class ColorAnalysisViewController: UIViewController {
         super.viewDidLoad()
         
         print("Background")
+        print("Background: \(backgroundColor), Primary: \(primaryColor), Secondary: \(secondaryColor), Detail: \(detailColor)")
         // Set the background colors of the views to display the colors
-//        primaryColorView.backgroundColor = primaryColor
-//        secondaryColorView.backgroundColor = secondaryColor
-//        backgroundColorView.backgroundColor = backgroundColor
-//        detailColorView.backgroundColor = detailColor
+        if let primaryColor = primaryColor {
+            primaryColorView.backgroundColor = primaryColor
+        } else {
+            primaryColorView.backgroundColor = UIColor.clear
+        }
+        
+        if let secondaryColor = secondaryColor {
+            secondaryColorView.backgroundColor = secondaryColor
+        } else {
+            secondaryColorView.backgroundColor = UIColor.clear
+        }
+        
+        if let backgroundColor = backgroundColor {
+            backgroundColorView.backgroundColor = backgroundColor
+        } else {
+            backgroundColorView.backgroundColor = UIColor.clear
+        }
+        
+        if let detailColor = detailColor {
+            detailColorView.backgroundColor = detailColor
+        } else {
+            detailColorView.backgroundColor = UIColor.clear
+        }
     }
 }
