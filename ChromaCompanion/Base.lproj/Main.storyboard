@@ -37,6 +37,12 @@
                                     <action selector="didTapButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="S7g-xb-XDw"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EMC-jZ-iNq" customClass="OverlayView" customModule="ChromaCompanion" customModuleProvider="target">
+                                <rect key="frame" x="20" y="79" width="353" height="593"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oh9-97-n6H"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -46,6 +52,7 @@
                     <connections>
                         <outlet property="button" destination="Vlq-GV-Rvh" id="azu-i6-5xD"/>
                         <outlet property="imageView" destination="2Ud-9b-7Ev" id="1NY-CU-xfy"/>
+                        <outlet property="overlayView" destination="EMC-jZ-iNq" id="ZZm-XK-tjy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		10D32D5EA1818439A83E8359 /* Pods_ChromaCompanionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3090E776C742B05F89268662 /* Pods_ChromaCompanionTests.framework */; };
+		44E3514E2BFB9F6F005A2627 /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E3514D2BFB9F6F005A2627 /* OverlayView.swift */; };
+		44E351502BFB9FA5005A2627 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E3514F2BFB9FA5005A2627 /* UIImageView.swift */; };
+		44E351522BFBAEB5005A2627 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E351512BFBAEB5005A2627 /* Object.swift */; };
 		5A9C861B2BF5336A00270C43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9C861A2BF5336A00270C43 /* AppDelegate.swift */; };
 		5A9C861D2BF5336A00270C43 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9C861C2BF5336A00270C43 /* SceneDelegate.swift */; };
 		5A9C861F2BF5336A00270C43 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9C861E2BF5336A00270C43 /* ViewController.swift */; };
@@ -41,6 +44,9 @@
 /* Begin PBXFileReference section */
 		1908552712D15898437AED73 /* Pods-ChromaCompanionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChromaCompanionTests.release.xcconfig"; path = "Target Support Files/Pods-ChromaCompanionTests/Pods-ChromaCompanionTests.release.xcconfig"; sourceTree = "<group>"; };
 		3090E776C742B05F89268662 /* Pods_ChromaCompanionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChromaCompanionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		44E3514D2BFB9F6F005A2627 /* OverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
+		44E3514F2BFB9FA5005A2627 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		44E351512BFBAEB5005A2627 /* Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
 		4BAE27AAEEE3658888BFEEB4 /* Pods-ChromaCompanion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChromaCompanion.debug.xcconfig"; path = "Target Support Files/Pods-ChromaCompanion/Pods-ChromaCompanion.debug.xcconfig"; sourceTree = "<group>"; };
 		572D7C872739913521124A00 /* Pods-ChromaCompanion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChromaCompanion.release.xcconfig"; path = "Target Support Files/Pods-ChromaCompanion/Pods-ChromaCompanion.release.xcconfig"; sourceTree = "<group>"; };
 		5A9C86172BF5336A00270C43 /* ChromaCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChromaCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +132,8 @@
 		5A9C86192BF5336A00270C43 /* ChromaCompanion */ = {
 			isa = PBXGroup;
 			children = (
+				44E351512BFBAEB5005A2627 /* Object.swift */,
+				44E3514D2BFB9F6F005A2627 /* OverlayView.swift */,
 				5A9C861A2BF5336A00270C43 /* AppDelegate.swift */,
 				5A9C861C2BF5336A00270C43 /* SceneDelegate.swift */,
 				5A9C861E2BF5336A00270C43 /* ViewController.swift */,
@@ -133,6 +141,7 @@
 				5A9C86232BF5336B00270C43 /* Assets.xcassets */,
 				5A9C86252BF5336B00270C43 /* LaunchScreen.storyboard */,
 				5A9C86282BF5336B00270C43 /* Info.plist */,
+				44E3514F2BFB9FA5005A2627 /* UIImageView.swift */,
 			);
 			path = ChromaCompanion;
 			sourceTree = "<group>";
@@ -179,6 +188,7 @@
 				5A9C86142BF5336A00270C43 /* Frameworks */,
 				5A9C86152BF5336A00270C43 /* Resources */,
 				AF6D73248915FE61A2631F75 /* [CP] Embed Pods Frameworks */,
+				05380A4AB608BBC47F9C0130 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -217,6 +227,7 @@
 				5A9C86342BF5336B00270C43 /* Frameworks */,
 				5A9C86352BF5336B00270C43 /* Resources */,
 				048D3262BF927E8DEA5100CF /* [CP] Embed Pods Frameworks */,
+				C94FEDF47EF81D1EF7E4C653 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -316,6 +327,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChromaCompanion-ChromaCompanionUITests/Pods-ChromaCompanion-ChromaCompanionUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		05380A4AB608BBC47F9C0130 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChromaCompanion/Pods-ChromaCompanion-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChromaCompanion/Pods-ChromaCompanion-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChromaCompanion/Pods-ChromaCompanion-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		313623A2FD1FC97AC7629F74 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -399,6 +427,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C94FEDF47EF81D1EF7E4C653 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChromaCompanion-ChromaCompanionUITests/Pods-ChromaCompanion-ChromaCompanionUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChromaCompanion-ChromaCompanionUITests/Pods-ChromaCompanion-ChromaCompanionUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChromaCompanion-ChromaCompanionUITests/Pods-ChromaCompanion-ChromaCompanionUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -407,7 +452,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A9C861F2BF5336A00270C43 /* ViewController.swift in Sources */,
+				44E351502BFB9FA5005A2627 /* UIImageView.swift in Sources */,
+				44E3514E2BFB9F6F005A2627 /* OverlayView.swift in Sources */,
 				5A9C861B2BF5336A00270C43 /* AppDelegate.swift in Sources */,
+				44E351522BFBAEB5005A2627 /* Object.swift in Sources */,
 				5A9C861D2BF5336A00270C43 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

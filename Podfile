@@ -7,6 +7,8 @@ target 'ChromaCompanion' do
 
   # Pods for ChromaCompanion
   pod 'UIImageColors'
+  pod 'GoogleMLKit/ObjectDetection', '3.2.0'
+  pod 'CropViewController'
 
   target 'ChromaCompanionTests' do
     inherit! :search_paths

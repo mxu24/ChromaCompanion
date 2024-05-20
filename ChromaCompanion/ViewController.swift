@@ -1,14 +1,26 @@
 import UIKit
 import Vision
 import UIImageColors
+import MLKit
+import PhotosUI
 
 class ViewController: UIViewController {
     
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet weak var overlayView: OverlayView!
     @IBOutlet var button: UIButton!
+    private var objectDetector: ObjectDetector?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Setup object detector.
+        let options = ObjectDetectorOptions()
+        options.detectorMode = .singleImage
+        options.shouldEnableMultipleObjects = false
+        options.shouldEnableClassification = true
+        
+        objectDetector = ObjectDetector.objectDetector(options: options)
         
         imageView.backgroundColor = .white
         button.setTitle("Take/Choose Picture", for: .normal)
@@ -39,6 +51,56 @@ class ViewController: UIViewController {
         picker.delegate = self
         present(picker, animated: true)
     }
+    
+    func objectDetectorProcess(image: UIImage) {
+        guard let objectDetector = objectDetector else {
+            return
+        }
+        
+        
+        let visionImage = VisionImage(image: image)
+        visionImage.orientation = image.imageOrientation
+        
+        objectDetector.process(visionImage) { detectedObjects, error in
+            guard error == nil else {
+                return
+            }
+            
+            guard let detectedObjects = detectedObjects,
+                  !detectedObjects.isEmpty else {
+                return
+            }
+            
+            
+            DispatchQueue.main.async {
+                self.setupOverlayView(image: image, detectedObjects: detectedObjects)
+            }
+        }
+        
+    }
+
+    
+    func setupOverlayView(image: UIImage, detectedObjects: [Object]) {
+        let colorArray: [UIColor] = [
+            .red,
+            .green,
+            .blue,
+            .yellow,
+            .magenta,
+            .cyan,
+            .black,
+        ]
+        
+        for i in 0..<detectedObjects.count {
+            let convertedRect = self.imageView.convertRect(fromImageRect: detectedObjects[i].frame)
+            let overlayObject: OverlayObject = OverlayObject(rect: convertedRect,
+                                                             color: colorArray[i % colorArray.count])
+            
+            overlayView.overlayObjects.append(overlayObject)
+        }
+        
+        overlayView.setNeedsDisplay()
+    }
 }
 
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -53,8 +115,17 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
             return
         }
-        self.imageView.image = image
-        extractColors(from: image)
+        
+        DispatchQueue.main.async {
+            self.imageView.image = image
+            
+            self.overlayView.overlayObjects = []
+            self.overlayView.setNeedsDisplay()
+            
+            self.objectDetectorProcess(image: image)
+        }
+
+//        extractColors(from: image)
         
 //        // Convert UIImage to CIImage
 //        guard let ciImage = CIImage(image: image) else {
