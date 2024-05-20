@@ -5,6 +5,7 @@ import MLKit
 import PhotosUI
 import CropViewController
 
+
 class ViewController: UIViewController {
     
     @IBOutlet var imageView: UIImageView!
@@ -24,7 +25,7 @@ class ViewController: UIViewController {
         
         objectDetector = ObjectDetector.objectDetector(options: options)
         
-        imageView.backgroundColor = .white
+        imageView.backgroundColor =  UIColor(red: 0.945, green: 0.949, blue: 0.945, alpha: 1.0)
         button.setTitle("Take/Choose Picture", for: .normal)
         button.setTitleColor(.white, for: .normal)
     }
