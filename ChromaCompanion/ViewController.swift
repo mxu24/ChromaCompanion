@@ -321,7 +321,6 @@ class ColorAnalysisViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("Background")
         print("Background: \(backgroundColor), Primary: \(primaryColor), Secondary: \(secondaryColor), Detail: \(detailColor)")
         // Set the background colors of the views to display the colors
         if let primaryColor = primaryColor {
