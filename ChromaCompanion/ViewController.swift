@@ -58,7 +58,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             return
         }
         
-        // Create objectness-based saliency request
+        // Create attention-based saliency request
         let request = VNGenerateAttentionBasedSaliencyImageRequest()
         
         // Perform saliency request
