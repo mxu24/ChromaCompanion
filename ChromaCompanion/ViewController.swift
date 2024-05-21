@@ -397,22 +397,28 @@ let predefinedColors: [ColorName] = [
 
     //Blue
     ColorName(name: "Blue", red: 0.0, green: 0.0, blue: 1.0),
-    ColorName(name: "Navy Blue", red: 0.0, green: 0.0, blue: 0.502),
+    ColorName(name: "Navy", red: 0.0, green: 0.0, blue: 0.502),
+    ColorName(name: "Navy", red: 0.22, green: 0.239, blue: 0.29),
     ColorName(name: "Teal", red: 0.0, green: 0.651, blue: 0.651),
     ColorName(name: "Baby Blue", red: 0.537, green: 0.812, blue: 0.941),
     ColorName(name: "Sky Blue", red: 0.584, green: 0.784, blue: 0.847),
     ColorName(name: "Turquoise", red: 0.247, green: 0.878, blue: 0.816),
     ColorName(name: "Royal Blue", red: 0.067, green: 0.118, blue: 0.424),
     ColorName(name: "Azure Blue", red: 0, green: 0.498, blue: 1),
+    ColorName(name: "Gray Blue", red: 0.471, green: 0.525, blue: 0.608),
         
     //Purple
-        
+
+    //Brown/Tan
+    ColorName(name: "Tan", red: 0.812, green: 0.765, blue: 0.706),
+
     //Black, White, Gray
     ColorName(name: "Black", red: 0.0, green: 0.0, blue: 0.0),
     ColorName(name: "Light Gray", red: 0.89, green: 0.89, blue: 0.89),
     ColorName(name: "Medium Gray", red: 0.61, green: 0.61, blue: 0.61),
     ColorName(name: "Dark Gray", red: 0.38, green: 0.38, blue: 0.38),
     ColorName(name: "White", red: 1.0, green: 1.0, blue: 1.0),
+
 
 ]
 
