@@ -358,6 +358,12 @@ class ColorAnalysisViewController: UIViewController {
     var circleLeadingConstraint2: NSLayoutConstraint!
     var circleLeadingConstraints2: NSLayoutConstraint!
     var circleLeadingConstraintss2: NSLayoutConstraint!
+    var circleLeadingConstraint3: NSLayoutConstraint!
+    var circleLeadingConstraints3: NSLayoutConstraint!
+    var circleLeadingConstraintss3: NSLayoutConstraint!
+    var circleLeadingConstraint4: NSLayoutConstraint!
+    var circleLeadingConstraints4: NSLayoutConstraint!
+    var circleLeadingConstraintss4: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -414,6 +420,8 @@ class ColorAnalysisViewController: UIViewController {
 //        setupIndicator(brightnessIndicator, for: brightnessGraphView)
         updateIndicators(for: backgroundColor ?? UIColor.clear)
         updateIndicators2(for: primaryColor ?? UIColor.clear)
+        updateIndicators3(for: secondaryColor ?? UIColor.clear)
+        updateIndicators4(for: detailColor ?? UIColor.clear)
     }
     
     private func setupGraphView(_ graphView: UIView, title: String) {
@@ -711,18 +719,254 @@ class ColorAnalysisViewController: UIViewController {
         // Update hue indicator
         print("hue2")
         print(hue)
-        setupIndicator2(hueIndicator, for: hueGraphView, with: hue)
+        setupIndicator2(hueIndicator2, for: hueGraphView2, with: hue)
         
         // Update saturation indicator
         print("saturation")
         print(saturation)
     
-        setupIndicators2(saturationIndicator, for: saturationGraphView, with: saturation)
+        setupIndicators2(saturationIndicator2, for: saturationGraphView2, with: saturation)
         
         // Update brightness indicator
         print("brightness")
         print(brightness)
-        setupIndicatorss2(brightnessIndicator, for: brightnessGraphView, with: brightness)
+        setupIndicatorss2(brightnessIndicator2, for: brightnessGraphView2, with: brightness)
+    }
+    
+    private func setupIndicator3(_ indicator: UIView, for graphView: UIView, with value: CGFloat) {
+        print("idk")
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.backgroundColor = .white
+        indicator.layer.borderColor = UIColor.black.cgColor
+        indicator.layer.borderWidth = 2
+        indicator.layer.cornerRadius = 5
+        graphView.addSubview(indicator)
+    
+        NSLayoutConstraint.activate([
+            indicator.widthAnchor.constraint(equalToConstant: 10),
+            indicator.heightAnchor.constraint(equalToConstant: 10),
+            indicator.centerYAnchor.constraint(equalTo: graphView.centerYAnchor)
+        ])
+        let position = 32 + (325 * value)
+        circleLeadingConstraint3 = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
+        circleLeadingConstraint3.isActive = true
+
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            self.updateCirclePosition3(to: position)
+        }
+        
+    }
+    
+    private func setupIndicators3(_ indicator: UIView, for graphView: UIView, with value: CGFloat) {
+        print("idk")
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.backgroundColor = .white
+        indicator.layer.borderColor = UIColor.black.cgColor
+        indicator.layer.borderWidth = 2
+        indicator.layer.cornerRadius = 5
+        graphView.addSubview(indicator)
+    
+        NSLayoutConstraint.activate([
+            indicator.widthAnchor.constraint(equalToConstant: 10),
+            indicator.heightAnchor.constraint(equalToConstant: 10),
+            indicator.centerYAnchor.constraint(equalTo: graphView.centerYAnchor)
+        ])
+        let position = 32 + (325 * value)
+        circleLeadingConstraints3 = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
+        circleLeadingConstraints3.isActive = true
+
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            self.updateCirclePositions3(to: position)
+        }
+        
+    }
+    
+    private func setupIndicatorss3(_ indicator: UIView, for graphView: UIView, with value: CGFloat) {
+        print("idk")
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.backgroundColor = .white
+        indicator.layer.borderColor = UIColor.black.cgColor
+        indicator.layer.borderWidth = 2
+        indicator.layer.cornerRadius = 5
+        graphView.addSubview(indicator)
+    
+        NSLayoutConstraint.activate([
+            indicator.widthAnchor.constraint(equalToConstant: 10),
+            indicator.heightAnchor.constraint(equalToConstant: 10),
+            indicator.centerYAnchor.constraint(equalTo: graphView.centerYAnchor)
+        ])
+        let position = 32 + (325 * value)
+        circleLeadingConstraintss3 = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
+        circleLeadingConstraintss3.isActive = true
+
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            self.updateCirclePositionss3(to: position)
+        }
+        
+    }
+    
+    func updateCirclePosition3(to position: CGFloat) {
+        circleLeadingConstraint3.constant = position
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func updateCirclePositions3(to position: CGFloat) {
+        circleLeadingConstraints3.constant = position
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func updateCirclePositionss3(to position: CGFloat) {
+        circleLeadingConstraintss3.constant = position
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    private func updateIndicators3(for color: UIColor) {
+        var hue: CGFloat = 0
+        var saturation: CGFloat = 0
+        var brightness: CGFloat = 0
+        var alpha: CGFloat = 0
+        
+        color.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
+        
+        // Update hue indicator
+        print("hue2")
+        print(hue)
+        setupIndicator3(hueIndicator3, for: hueGraphView3, with: hue)
+        
+        // Update saturation indicator
+        print("saturation")
+        print(saturation)
+    
+        setupIndicators3(saturationIndicator3, for: saturationGraphView3, with: saturation)
+        
+        // Update brightness indicator
+        print("brightness")
+        print(brightness)
+        setupIndicatorss3(brightnessIndicator3, for: brightnessGraphView3, with: brightness)
+    }
+    
+    private func setupIndicator4(_ indicator: UIView, for graphView: UIView, with value: CGFloat) {
+        print("idk")
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.backgroundColor = .white
+        indicator.layer.borderColor = UIColor.black.cgColor
+        indicator.layer.borderWidth = 2
+        indicator.layer.cornerRadius = 5
+        graphView.addSubview(indicator)
+    
+        NSLayoutConstraint.activate([
+            indicator.widthAnchor.constraint(equalToConstant: 10),
+            indicator.heightAnchor.constraint(equalToConstant: 10),
+            indicator.centerYAnchor.constraint(equalTo: graphView.centerYAnchor)
+        ])
+        let position = 32 + (325 * value)
+        circleLeadingConstraint4 = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
+        circleLeadingConstraint4.isActive = true
+
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            self.updateCirclePosition4(to: position)
+        }
+        
+    }
+    
+    private func setupIndicators4(_ indicator: UIView, for graphView: UIView, with value: CGFloat) {
+        print("idk")
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.backgroundColor = .white
+        indicator.layer.borderColor = UIColor.black.cgColor
+        indicator.layer.borderWidth = 2
+        indicator.layer.cornerRadius = 5
+        graphView.addSubview(indicator)
+    
+        NSLayoutConstraint.activate([
+            indicator.widthAnchor.constraint(equalToConstant: 10),
+            indicator.heightAnchor.constraint(equalToConstant: 10),
+            indicator.centerYAnchor.constraint(equalTo: graphView.centerYAnchor)
+        ])
+        let position = 32 + (325 * value)
+        circleLeadingConstraints4 = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
+        circleLeadingConstraints4.isActive = true
+
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            self.updateCirclePositions4(to: position)
+        }
+        
+    }
+    
+    private func setupIndicatorss4(_ indicator: UIView, for graphView: UIView, with value: CGFloat) {
+        print("idk")
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.backgroundColor = .white
+        indicator.layer.borderColor = UIColor.black.cgColor
+        indicator.layer.borderWidth = 2
+        indicator.layer.cornerRadius = 5
+        graphView.addSubview(indicator)
+    
+        NSLayoutConstraint.activate([
+            indicator.widthAnchor.constraint(equalToConstant: 10),
+            indicator.heightAnchor.constraint(equalToConstant: 10),
+            indicator.centerYAnchor.constraint(equalTo: graphView.centerYAnchor)
+        ])
+        let position = 32 + (325 * value)
+        circleLeadingConstraintss4 = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
+        circleLeadingConstraintss4.isActive = true
+
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            self.updateCirclePositionss4(to: position)
+        }
+        
+    }
+    
+    func updateCirclePosition4(to position: CGFloat) {
+        circleLeadingConstraint4.constant = position
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func updateCirclePositions4(to position: CGFloat) {
+        circleLeadingConstraints4.constant = position
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func updateCirclePositionss4(to position: CGFloat) {
+        circleLeadingConstraintss4.constant = position
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    private func updateIndicators4(for color: UIColor) {
+        var hue: CGFloat = 0
+        var saturation: CGFloat = 0
+        var brightness: CGFloat = 0
+        var alpha: CGFloat = 0
+        
+        color.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
+        
+        // Update hue indicator
+        print("hue2")
+        print(hue)
+        setupIndicator4(hueIndicator4, for: hueGraphView4, with: hue)
+        
+        // Update saturation indicator
+        print("saturation")
+        print(saturation)
+    
+        setupIndicators4(saturationIndicator4, for: saturationGraphView4, with: saturation)
+        
+        // Update brightness indicator
+        print("brightness")
+        print(brightness)
+        setupIndicatorss4(brightnessIndicator4, for: brightnessGraphView4, with: brightness)
     }
     
     private func updateGraphBackground(graphView: UIView, startColor: UIColor, endColor: UIColor) {
