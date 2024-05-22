@@ -1233,12 +1233,5 @@ func findClosestColorName(to color: UIColor) -> String {
         }
     }
     
-    if let closestColor = closestColor {
-        let redValue = Int(closestColor.red * 255)
-        let greenValue = Int(closestColor.green * 255)
-        let blueValue = Int(closestColor.blue * 255)
-        return "\(closestColor.name) (\(redValue), \(greenValue), \(blueValue))"
-    } else {
-        return "Unknown"
-    }
+    return closestColor?.name ?? "Unknown"
 }
