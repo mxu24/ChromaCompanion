@@ -238,6 +238,7 @@ class ColorAnalysisViewController: UIViewController {
     @IBOutlet weak var secondaryColorLabel: UILabel!
     @IBOutlet weak var backgroundColorLabel: UILabel!
     @IBOutlet weak var detailColorLabel: UILabel!
+    @IBOutlet weak var aestheticLabel: UILabel!
     
     @IBOutlet weak var hueGraphView: UIView!
     @IBOutlet weak var hueIndicator: UIView!
@@ -330,6 +331,11 @@ class ColorAnalysisViewController: UIViewController {
         secondaryColorLabel.text = secondaryColorName
         backgroundColorLabel.text = backgroundColorName
         detailColorLabel.text = detailColorName
+        
+        let colors = [backgroundColorName]
+        let groups = findGroups(for: colors)
+        aestheticLabel.text = groups
+        print(groups)
     }
     private func setupGraphViews() {
         setupGraphView(hueGraphView, title: "Hue", for: backgroundColor ?? UIColor.clear)
@@ -351,6 +357,31 @@ class ColorAnalysisViewController: UIViewController {
         updateIndicators2(for: primaryColor ?? UIColor.clear)
         updateIndicators3(for: secondaryColor ?? UIColor.clear)
         updateIndicators4(for: detailColor ?? UIColor.clear)
+    }
+    
+    func findGroups(for colors: [String?]) -> String {
+        let groups: [String: [String]] = [
+            "Academia": ["Deep Red", "Maroon", "Dark Red", "Dark Pink", "Dark Purple", "Plum", "Burgundy", "Navy", "Forest Green", "Mustard", "Ivory", "Tan", "Chocolate", "Slate Gray", "White", "Snow", "Smoke", "Silver"],
+            "Coastal": ["Sky Blue", "Baby Blue", "Aqua Blue", "Seafoam Green", "Sandy Beige", "Turquoise", "Navy", "Coral", "Mint Green", "Light Blue", "Light Sky Blue", "Slate Blue", "Pale Blue", "Ivory", "White", "Snow", "Silver"],
+            "Cottagecore": ["Blush", "Peach Puff", "Light Coral", "Misty Rose", "Peach", "Pale Peach", "Salmon", "Lavender", "Thistle", "Tan", "Ivory", "Flax", "Light Yellow", "Pale Green", "Beige", "Sandy Brown", "White", "Snow"],
+            "Emo": ["Black", "Charcoal Gray", "Blood Red", "Deep Purple", "Dark Olive", "Slate Gray", "Midnight Blue", "Dark Blue", "Dark Lavender", "Sienna", "Saddle Brown"],
+            "Professional": ["Navy", "Charcoal Gray", "Taupe", "Ivory", "White", "Slate Gray", "Light Gray", "Medium Gray", "Dark Gray", "Silver", "Gainsboro", "Smoke"],
+            "Streetwear": ["Red", "Bright Red", "Vibrant Orange", "Bright Yellow", "Mustard", "Lime", "Olive", "Army Green", "Teal", "Bright Lime", "Bright Green", "Dark Green", "Yellow Green", "Burnt Orange", "Pumpkin", "Orange", "Carrot Orange", "Dark Olive", "Lemon", "Gold", "Bright Lime", "Bright Green", "Yellow Green", "Teal Green", "Sage Green", "Navy", "Baby Blue", "Royal Blue", "Azure Blue", "Gray Blue", "Deep Sky Blue", "Slate Blue", "Dark Purple", "Violet", "Plum", "Blurple", "Light Pink", "Hot Pink", "Fuchsia", "Deep Pink", "Rose", "Coral", "Deep Pink", "Peach", "Tangerine", "Peach Puff"],
+            "Y2K": ["Bubblegum Pink", "Baby Blue", "Sky Blue", "Lemon", "Golden Yellow", "Pastel Pink", "Pastel Yellow", "Pale Violet Red", "Orchid", "Light Pink", "Light Orange", "Pale Green", "Lavender", "Light Yellow", "Light Coral", "Light Orange", "Pastel Yellow", "Light Green", "Light Blue", "Peach Puff", "Ivory", "Flax", "White", "Snow"]
+        ]
+        
+        var foundGroups: Set<String> = []
+        
+        for color in colors {
+            guard let colorName = color else { continue }
+            for (group, groupColors) in groups {
+                if groupColors.contains(colorName) {
+                    foundGroups.insert(group)
+                }
+            }
+        }
+        
+        return foundGroups.joined(separator: ", ")
     }
     
     private func setupGraphView(_ graphView: UIView, title: String, for color: UIColor) {

@@ -553,10 +553,24 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recommended Aesthetics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDc-qO-tnY">
+                                                <rect key="frame" x="96" y="1864" width="200" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2A-Uq-c1N">
+                                                <rect key="frame" x="36" y="1890" width="344" height="33"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="2500" id="frG-To-Jc8"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="2500" id="frG-To-Jc8" userLabel="height = 3000"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -583,6 +597,7 @@
                     <navigationItem key="navigationItem" title="Color Analysis" id="qUY-OA-MVS" userLabel="Color Analysis"/>
                     <size key="freeformSize" width="393" height="852"/>
                     <connections>
+                        <outlet property="aestheticLabel" destination="W2A-Uq-c1N" id="A9s-my-rfN"/>
                         <outlet property="backgroundColorLabel" destination="Ib1-Xa-2PJ" id="Gt4-ED-LiA"/>
                         <outlet property="backgroundColorView" destination="iJb-qD-f4a" id="zvU-7F-5JX"/>
                         <outlet property="brightnessGraphView" destination="Xee-oK-Lvb" id="vm2-kM-b2r"/>
