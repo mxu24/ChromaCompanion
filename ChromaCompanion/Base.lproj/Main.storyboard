@@ -73,13 +73,6 @@
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k2W-XD-VHr">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="2000"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dominant Color: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfl-1e-WyN">
-                                                <rect key="frame" x="26" y="29" width="128" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ib1-Xa-2PJ">
                                                 <rect key="frame" x="155" y="29" width="208" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -553,6 +546,13 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dominant Color: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LL0-2F-Dbs">
+                                                <rect key="frame" x="27" y="29" width="128" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -583,7 +583,7 @@
                     <navigationItem key="navigationItem" title="Color Analysis" id="qUY-OA-MVS" userLabel="Color Analysis"/>
                     <size key="freeformSize" width="393" height="852"/>
                     <connections>
-                        <outlet property="backgroundColorLabel" destination="Vfl-1e-WyN" id="n8p-06-lBI"/>
+                        <outlet property="backgroundColorLabel" destination="Ib1-Xa-2PJ" id="Gt4-ED-LiA"/>
                         <outlet property="backgroundColorView" destination="iJb-qD-f4a" id="zvU-7F-5JX"/>
                         <outlet property="brightnessGraphView" destination="Xee-oK-Lvb" id="vm2-kM-b2r"/>
                         <outlet property="brightnessGraphView2" destination="Bly-p2-pQB" id="18n-8v-3Wq"/>
