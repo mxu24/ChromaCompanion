@@ -400,16 +400,16 @@ class ColorAnalysisViewController: UIViewController {
         detailColorLabel.text = detailColorName
     }
     private func setupGraphViews() {
-        setupGraphView(hueGraphView, title: "Hue")
-        setupGraphView(hueGraphView2, title: "Hue")
-        setupGraphView(hueGraphView3, title: "Hue")
-        setupGraphView(hueGraphView4, title: "Hue")
+        setupGraphView(hueGraphView, title: "Hue", for: backgroundColor ?? UIColor.clear)
+        setupGraphView(hueGraphView2, title: "Hue", for: primaryColor ?? UIColor.clear)
+        setupGraphView(hueGraphView3, title: "Hue", for: secondaryColor ?? UIColor.clear)
+        setupGraphView(hueGraphView4, title: "Hue", for: detailColor ?? UIColor.clear)
 //        setupIndicator(hueIndicator, for: hueGraphView)
         
-        setupGraphView(saturationGraphView, title: "Saturation")
-        setupGraphView(saturationGraphView2, title: "Saturation")
-        setupGraphView(saturationGraphView3, title: "Saturation")
-        setupGraphView(saturationGraphView4, title: "Saturation")
+        setupGraphView(saturationGraphView, title: "Saturation", for: backgroundColor ?? UIColor.clear)
+        setupGraphView(saturationGraphView2, title: "Saturation", for: primaryColor ?? UIColor.clear)
+        setupGraphView(saturationGraphView3, title: "Saturation", for: secondaryColor ?? UIColor.clear)
+        setupGraphView(saturationGraphView4, title: "Saturation", for: detailColor ?? UIColor.clear)
 //        setupIndicator(saturationIndicator, for: saturationGraphView)
         
         setupBrightnessGraphView()
@@ -424,7 +424,14 @@ class ColorAnalysisViewController: UIViewController {
         updateIndicators4(for: detailColor ?? UIColor.clear)
     }
     
-    private func setupGraphView(_ graphView: UIView, title: String) {
+    private func setupGraphView(_ graphView: UIView, title: String, for color: UIColor) {
+        var hue: CGFloat = 0
+        var saturation: CGFloat = 0
+        var brightness: CGFloat = 0
+        var alpha: CGFloat = 0
+        
+        color.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
+        
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = graphView.bounds
         
@@ -433,7 +440,7 @@ class ColorAnalysisViewController: UIViewController {
                 UIColor(hue: CGFloat(hue) / 360.0, saturation: 1.0, brightness: 1.0, alpha: 1.0).cgColor
             }
         } else if title == "Saturation" {
-            let hue: CGFloat = 0.0
+//            let hue: CGFloat = 0.1
             gradientLayer.colors = [
                 UIColor(hue: hue, saturation: 0.0, brightness: 1.0, alpha: 1.0).cgColor,
                 UIColor(hue: hue, saturation: 1.0, brightness: 1.0, alpha: 1.0).cgColor
