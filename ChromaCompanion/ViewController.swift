@@ -1053,7 +1053,7 @@ let predefinedColors: [ColorName] = [
     ColorName(name: "Bright Lime", red: 0.498, green: 1.0, blue: 0.0),
     ColorName(name: "Spring Green", red: 0.0, green: 1.0, blue: 0.498),
     ColorName(name: "Teal Green", red: 0.0, green: 0.502, blue: 0.502),
-    ColorName(name: "Sadge Green", red: 0.522, green: 0.651, blue: 0.58),
+    ColorName(name: "Sage Green", red: 0.522, green: 0.651, blue: 0.58),
 
     //Blue
     ColorName(name: "Navy", red: 0.0, green: 0.0, blue: 0.502),
@@ -1233,5 +1233,12 @@ func findClosestColorName(to color: UIColor) -> String {
         }
     }
     
-    return closestColor?.name ?? "Unknown"
+    if let closestColor = closestColor {
+        let redValue = Int(closestColor.red * 255)
+        let greenValue = Int(closestColor.green * 255)
+        let blueValue = Int(closestColor.blue * 255)
+        return "\(closestColor.name) (\(redValue), \(greenValue), \(blueValue))"
+    } else {
+        return "Unknown"
+    }
 }
