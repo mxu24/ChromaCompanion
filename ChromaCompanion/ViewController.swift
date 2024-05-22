@@ -102,11 +102,7 @@ class ViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.presentCropViewController(for: image, with: normalizedSalientRect)
                 }
-                
-//                DispatchQueue.main.async {
-//                    let customObject = DetectedObject(frame: normalizedSalientRect, id: 0, label: "Salient Object", confidence: 1.0)
-//                    self.setupOverlayView(image: image, detectedObjects: [customObject])
-//                }
+
             } else {
                 print("No salient regions found.")
             }
@@ -117,23 +113,6 @@ class ViewController: UIViewController {
 
     
     func setupOverlayView(image: UIImage, detectedObjects: [Object]) {
-//        let colorArray: [UIColor] = [
-//            .red,
-//            .green,
-//            .blue,
-//            .yellow,
-//            .magenta,
-//            .cyan,
-//            .black,
-//        ]
-//        
-//        for i in 0..<detectedObjects.count {
-//            let convertedRect = self.imageView.convertRect(fromImageRect: detectedObjects[i].frame)
-//            let overlayObject: OverlayObject = OverlayObject(rect: convertedRect,
-//                                                             color: colorArray[i % colorArray.count])
-//            
-//            overlayView.overlayObjects.append(overlayObject)
-//        }
         overlayView.overlayObjects = []
         overlayView.setNeedsDisplay()
         if let firstObjectFrame = detectedObjects.first?.frame {
@@ -203,53 +182,6 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             
             self.objectDetectorProcess(image: image)
         }
-
-//        extractColors(from: image)
-        
-//        // Convert UIImage to CIImage
-//        guard let ciImage = CIImage(image: image) else {
-//            return
-//        }
-//        
-//        // Create attention-based saliency request
-//        let request = VNGenerateAttentionBasedSaliencyImageRequest()
-//        
-//        // Perform saliency request
-//        let handler = VNImageRequestHandler(ciImage: ciImage, options: [:])
-//        DispatchQueue.global(qos: .userInitiated).async {
-//            do {
-//                try handler.perform([request])
-//                if let results = request.results,
-//                   let salientObject = results.first,
-//                   let salientRect = salientObject.salientObjects?.first?.boundingBox {
-//                    
-//                    // Normalized coordinates to image coordinates
-//                    let imageRect = ciImage.extent
-//                    let normalizedSalientRect = VNImageRectForNormalizedRect(salientRect, Int(imageRect.width), Int(imageRect.height))
-//                    
-//                    // Crop image to salient rect
-//                    let croppedImage = ciImage.cropped(to: normalizedSalientRect)
-//                    let thumbnail = UIImage(ciImage: croppedImage)
-//                    
-//                    DispatchQueue.main.async {
-//                        self.imageView.image = thumbnail
-//                        self.extractColors(from: thumbnail)
-//                    }
-//                } else {
-//                    // If no salient region found, use original image
-//                    DispatchQueue.main.async {
-//                        self.imageView.image = image
-//                        self.extractColors(from: image)
-//                    }
-//                }
-//            } catch {
-//                print("Error performing saliency request: \(error)")
-//                DispatchQueue.main.async {
-//                    self.imageView.image = image
-//                    self.extractColors(from: image)
-//                }
-//            }
-//        }
     }
     
     private func extractColors(from image: UIImage) {
@@ -404,20 +336,17 @@ class ColorAnalysisViewController: UIViewController {
         setupGraphView(hueGraphView2, title: "Hue", for: primaryColor ?? UIColor.clear)
         setupGraphView(hueGraphView3, title: "Hue", for: secondaryColor ?? UIColor.clear)
         setupGraphView(hueGraphView4, title: "Hue", for: detailColor ?? UIColor.clear)
-//        setupIndicator(hueIndicator, for: hueGraphView)
         
         setupGraphView(saturationGraphView, title: "Saturation", for: backgroundColor ?? UIColor.clear)
         setupGraphView(saturationGraphView2, title: "Saturation", for: primaryColor ?? UIColor.clear)
         setupGraphView(saturationGraphView3, title: "Saturation", for: secondaryColor ?? UIColor.clear)
         setupGraphView(saturationGraphView4, title: "Saturation", for: detailColor ?? UIColor.clear)
-//        setupIndicator(saturationIndicator, for: saturationGraphView)
         
         setupBrightnessGraphView()
         setupBrightnessGraphView2()
         setupBrightnessGraphView3()
         setupBrightnessGraphView4()
         
-//        setupIndicator(brightnessIndicator, for: brightnessGraphView)
         updateIndicators(for: backgroundColor ?? UIColor.clear)
         updateIndicators2(for: primaryColor ?? UIColor.clear)
         updateIndicators3(for: secondaryColor ?? UIColor.clear)
@@ -440,7 +369,6 @@ class ColorAnalysisViewController: UIViewController {
                 UIColor(hue: CGFloat(hue) / 360.0, saturation: 1.0, brightness: 1.0, alpha: 1.0).cgColor
             }
         } else if title == "Saturation" {
-//            let hue: CGFloat = 0.1
             gradientLayer.colors = [
                 UIColor(hue: hue, saturation: 0.0, brightness: 1.0, alpha: 1.0).cgColor,
                 UIColor(hue: hue, saturation: 1.0, brightness: 1.0, alpha: 1.0).cgColor
@@ -505,7 +433,6 @@ class ColorAnalysisViewController: UIViewController {
     }
     
     private func setupIndicator(_ indicator: UIView, for graphView: UIView, with value: CGFloat) {
-        print("idk")
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.backgroundColor = .white
         indicator.layer.borderColor = UIColor.black.cgColor
@@ -529,7 +456,6 @@ class ColorAnalysisViewController: UIViewController {
     }
     
     private func setupIndicators(_ indicator: UIView, for graphView: UIView, with value: CGFloat) {
-        print("idk")
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.backgroundColor = .white
         indicator.layer.borderColor = UIColor.black.cgColor
@@ -553,7 +479,6 @@ class ColorAnalysisViewController: UIViewController {
     }
     
     private func setupIndicatorss(_ indicator: UIView, for graphView: UIView, with value: CGFloat) {
-        print("idk")
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.backgroundColor = .white
         indicator.layer.borderColor = UIColor.black.cgColor
@@ -606,24 +531,16 @@ class ColorAnalysisViewController: UIViewController {
         color.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
         
         // Update hue indicator
-        print("hue")
-        print(hue)
         setupIndicator(hueIndicator, for: hueGraphView, with: hue)
         
         // Update saturation indicator
-        print("saturation")
-        print(saturation)
-    
         setupIndicators(saturationIndicator, for: saturationGraphView, with: saturation)
         
         // Update brightness indicator
-        print("brightness")
-        print(brightness)
         setupIndicatorss(brightnessIndicator, for: brightnessGraphView, with: brightness)
     }
     
     private func setupIndicator2(_ indicator: UIView, for graphView: UIView, with value: CGFloat) {
-        print("idk")
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.backgroundColor = .white
         indicator.layer.borderColor = UIColor.black.cgColor
@@ -647,7 +564,6 @@ class ColorAnalysisViewController: UIViewController {
     }
     
     private func setupIndicators2(_ indicator: UIView, for graphView: UIView, with value: CGFloat) {
-        print("idk")
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.backgroundColor = .white
         indicator.layer.borderColor = UIColor.black.cgColor
@@ -671,7 +587,6 @@ class ColorAnalysisViewController: UIViewController {
     }
     
     private func setupIndicatorss2(_ indicator: UIView, for graphView: UIView, with value: CGFloat) {
-        print("idk")
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.backgroundColor = .white
         indicator.layer.borderColor = UIColor.black.cgColor
@@ -724,24 +639,16 @@ class ColorAnalysisViewController: UIViewController {
         color.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
         
         // Update hue indicator
-        print("hue2")
-        print(hue)
         setupIndicator2(hueIndicator2, for: hueGraphView2, with: hue)
         
         // Update saturation indicator
-        print("saturation")
-        print(saturation)
-    
         setupIndicators2(saturationIndicator2, for: saturationGraphView2, with: saturation)
         
         // Update brightness indicator
-        print("brightness")
-        print(brightness)
         setupIndicatorss2(brightnessIndicator2, for: brightnessGraphView2, with: brightness)
     }
     
     private func setupIndicator3(_ indicator: UIView, for graphView: UIView, with value: CGFloat) {
-        print("idk")
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.backgroundColor = .white
         indicator.layer.borderColor = UIColor.black.cgColor
@@ -765,7 +672,6 @@ class ColorAnalysisViewController: UIViewController {
     }
     
     private func setupIndicators3(_ indicator: UIView, for graphView: UIView, with value: CGFloat) {
-        print("idk")
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.backgroundColor = .white
         indicator.layer.borderColor = UIColor.black.cgColor
@@ -789,7 +695,6 @@ class ColorAnalysisViewController: UIViewController {
     }
     
     private func setupIndicatorss3(_ indicator: UIView, for graphView: UIView, with value: CGFloat) {
-        print("idk")
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.backgroundColor = .white
         indicator.layer.borderColor = UIColor.black.cgColor
@@ -842,24 +747,16 @@ class ColorAnalysisViewController: UIViewController {
         color.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
         
         // Update hue indicator
-        print("hue2")
-        print(hue)
         setupIndicator3(hueIndicator3, for: hueGraphView3, with: hue)
         
         // Update saturation indicator
-        print("saturation")
-        print(saturation)
-    
         setupIndicators3(saturationIndicator3, for: saturationGraphView3, with: saturation)
         
         // Update brightness indicator
-        print("brightness")
-        print(brightness)
         setupIndicatorss3(brightnessIndicator3, for: brightnessGraphView3, with: brightness)
     }
     
     private func setupIndicator4(_ indicator: UIView, for graphView: UIView, with value: CGFloat) {
-        print("idk")
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.backgroundColor = .white
         indicator.layer.borderColor = UIColor.black.cgColor
@@ -883,7 +780,6 @@ class ColorAnalysisViewController: UIViewController {
     }
     
     private func setupIndicators4(_ indicator: UIView, for graphView: UIView, with value: CGFloat) {
-        print("idk")
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.backgroundColor = .white
         indicator.layer.borderColor = UIColor.black.cgColor
@@ -907,7 +803,6 @@ class ColorAnalysisViewController: UIViewController {
     }
     
     private func setupIndicatorss4(_ indicator: UIView, for graphView: UIView, with value: CGFloat) {
-        print("idk")
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.backgroundColor = .white
         indicator.layer.borderColor = UIColor.black.cgColor
@@ -960,19 +855,12 @@ class ColorAnalysisViewController: UIViewController {
         color.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
         
         // Update hue indicator
-        print("hue2")
-        print(hue)
         setupIndicator4(hueIndicator4, for: hueGraphView4, with: hue)
         
         // Update saturation indicator
-        print("saturation")
-        print(saturation)
-    
         setupIndicators4(saturationIndicator4, for: saturationGraphView4, with: saturation)
         
         // Update brightness indicator
-        print("brightness")
-        print(brightness)
         setupIndicatorss4(brightnessIndicator4, for: brightnessGraphView4, with: brightness)
     }
     

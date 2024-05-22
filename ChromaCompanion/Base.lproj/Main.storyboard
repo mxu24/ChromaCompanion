@@ -63,15 +63,15 @@
         <scene sceneID="TXA-kf-Bep">
             <objects>
                 <viewController storyboardIdentifier="ColorAnalysisViewController" title="Color Analysis" id="Hjg-On-egj" customClass="ColorAnalysisViewController" customModule="ChromaCompanion" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="PtQ-QG-3Mh">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="PtQ-QG-3Mh">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tqc-uA-fKK">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tqc-uA-fKK">
                                 <rect key="frame" x="0.0" y="103" width="393" height="749"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k2W-XD-VHr">
-                                        <rect key="frame" x="0.0" y="112" width="393" height="2000"/>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k2W-XD-VHr">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="2000"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dominant Color: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfl-1e-WyN">
                                                 <rect key="frame" x="26" y="29" width="128" height="21"/>
@@ -556,7 +556,7 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="2000" id="Fer-Ta-HiF"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="2500" id="frG-To-Jc8"/>
                                         </constraints>
                                     </view>
                                 </subviews>
