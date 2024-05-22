@@ -1469,7 +1469,7 @@
     </scenes>
     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
-        <image name="academia-cover" width="393" height="218"/>
+        <image name="academia-cover" width="381.33334350585938" height="214"/>
         <image name="academia1" width="733" height="1154"/>
         <image name="academia2" width="564" height="564"/>
         <image name="academia3" width="563" height="770"/>
@@ -1480,7 +1480,7 @@
         <image name="academia8" width="348" height="692"/>
         <image name="camera" catalog="system" width="128" height="93"/>
         <image name="camera.fill" catalog="system" width="128" height="93"/>
-        <image name="coastal-cover" width="393" height="224.66667175292969"/>
+        <image name="coastal-cover" width="381" height="211.66667175292969"/>
         <image name="coastal1" width="564" height="619"/>
         <image name="coastal2" width="564" height="846"/>
         <image name="coastal3" width="564" height="564"/>
@@ -1489,7 +1489,7 @@
         <image name="coastal6" width="736" height="980"/>
         <image name="coastal7" width="562" height="741"/>
         <image name="coastal8" width="564" height="788"/>
-        <image name="cottagecore-cover" width="419.33334350585938" height="242.66667175292969"/>
+        <image name="cottagecore-cover" width="381" height="217"/>
         <image name="cottagecore1" width="563" height="688"/>
         <image name="cottagecore2" width="396" height="520"/>
         <image name="cottagecore3" width="736" height="1308"/>
@@ -1498,7 +1498,7 @@
         <image name="cottagecore6" width="563" height="789"/>
         <image name="cottagecore7" width="564" height="705"/>
         <image name="cottagecore8" width="736" height="1308"/>
-        <image name="emo-cover" width="390" height="215"/>
+        <image name="emo-cover" width="381" height="210"/>
         <image name="emo1" width="564" height="1101"/>
         <image name="emo2" width="564" height="1100"/>
         <image name="emo3" width="564" height="652"/>
@@ -1507,7 +1507,7 @@
         <image name="emo6" width="736" height="1308"/>
         <image name="emo7" width="321" height="600"/>
         <image name="emo8" width="564" height="883"/>
-        <image name="professional-cover" width="393" height="213.33332824707031"/>
+        <image name="professional-cover" width="381" height="206.66667175292969"/>
         <image name="professional1" width="768" height="922"/>
         <image name="professional2" width="564" height="1002"/>
         <image name="professional3" width="393" height="550"/>
@@ -1516,7 +1516,7 @@
         <image name="professional6" width="736" height="1103"/>
         <image name="professional7" width="564" height="752"/>
         <image name="professional8" width="520" height="693"/>
-        <image name="streetwear-cover" width="393" height="218"/>
+        <image name="streetwear-cover" width="381" height="207.33332824707031"/>
         <image name="streetwear1" width="564" height="752"/>
         <image name="streetwear2" width="564" height="940"/>
         <image name="streetwear3" width="736" height="981"/>
@@ -1527,7 +1527,7 @@
         <image name="streetwear8" width="474" height="843"/>
         <image name="tshirt" catalog="system" width="128" height="98"/>
         <image name="tshirt.fill" catalog="system" width="128" height="98"/>
-        <image name="y2k-cover" width="393" height="218.33332824707031"/>
+        <image name="y2k-cover" width="381" height="208.33332824707031"/>
         <image name="y2k1" width="500" height="700"/>
         <image name="y2k2" width="1500" height="2250"/>
         <image name="y2k3" width="654" height="599"/>
@@ -1540,7 +1540,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGrayColor">
-            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

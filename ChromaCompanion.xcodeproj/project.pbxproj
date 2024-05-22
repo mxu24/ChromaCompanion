@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10D32D5EA1818439A83E8359 /* Pods_ChromaCompanionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3090E776C742B05F89268662 /* Pods_ChromaCompanionTests.framework */; };
 		44E3514E2BFB9F6F005A2627 /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E3514D2BFB9F6F005A2627 /* OverlayView.swift */; };
 		44E351502BFB9FA5005A2627 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E3514F2BFB9FA5005A2627 /* UIImageView.swift */; };
 		44E351522BFBAEB5005A2627 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E351512BFBAEB5005A2627 /* Object.swift */; };
@@ -20,8 +19,10 @@
 		5A9C86322BF5336B00270C43 /* ChromaCompanionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9C86312BF5336B00270C43 /* ChromaCompanionTests.swift */; };
 		5A9C863C2BF5336B00270C43 /* ChromaCompanionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9C863B2BF5336B00270C43 /* ChromaCompanionUITests.swift */; };
 		5A9C863E2BF5336B00270C43 /* ChromaCompanionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9C863D2BF5336B00270C43 /* ChromaCompanionUITestsLaunchTests.swift */; };
-		BA06E93B65432EA54175837F /* Pods_ChromaCompanion_ChromaCompanionUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97C5DD40AD4A1BE6DE0F308F /* Pods_ChromaCompanion_ChromaCompanionUITests.framework */; };
-		EF529440BE8A8A0F41663030 /* Pods_ChromaCompanion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5148E3DB77574A5BFA293E5 /* Pods_ChromaCompanion.framework */; };
+		5AD499EC2BFE2F090060C472 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD499EB2BFE2F090060C472 /* Launch Screen.storyboard */; };
+		6FE4D7C2EE5DD859E4D71A82 /* Pods_ChromaCompanionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9197A8EA7B9BE333A86FDBC3 /* Pods_ChromaCompanionTests.framework */; };
+		89BB3675E9926F8DC6CD58F3 /* Pods_ChromaCompanion_ChromaCompanionUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C91A040DBBCAD0F2002005B6 /* Pods_ChromaCompanion_ChromaCompanionUITests.framework */; };
+		BB743A6FC1EF53B49C593125 /* Pods_ChromaCompanion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FB5CC4F013B6D68798255FC /* Pods_ChromaCompanion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,13 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1908552712D15898437AED73 /* Pods-ChromaCompanionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChromaCompanionTests.release.xcconfig"; path = "Target Support Files/Pods-ChromaCompanionTests/Pods-ChromaCompanionTests.release.xcconfig"; sourceTree = "<group>"; };
-		3090E776C742B05F89268662 /* Pods_ChromaCompanionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChromaCompanionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C4E2E817EF2036C766D4482 /* Pods-ChromaCompanion-ChromaCompanionUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChromaCompanion-ChromaCompanionUITests.debug.xcconfig"; path = "Target Support Files/Pods-ChromaCompanion-ChromaCompanionUITests/Pods-ChromaCompanion-ChromaCompanionUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		285957E5A22FE9E9DE7CD31B /* Pods-ChromaCompanion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChromaCompanion.release.xcconfig"; path = "Target Support Files/Pods-ChromaCompanion/Pods-ChromaCompanion.release.xcconfig"; sourceTree = "<group>"; };
+		29A03D409777372BF8D4B17B /* Pods-ChromaCompanion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChromaCompanion.debug.xcconfig"; path = "Target Support Files/Pods-ChromaCompanion/Pods-ChromaCompanion.debug.xcconfig"; sourceTree = "<group>"; };
 		44E3514D2BFB9F6F005A2627 /* OverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
 		44E3514F2BFB9FA5005A2627 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		44E351512BFBAEB5005A2627 /* Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
-		4BAE27AAEEE3658888BFEEB4 /* Pods-ChromaCompanion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChromaCompanion.debug.xcconfig"; path = "Target Support Files/Pods-ChromaCompanion/Pods-ChromaCompanion.debug.xcconfig"; sourceTree = "<group>"; };
-		572D7C872739913521124A00 /* Pods-ChromaCompanion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChromaCompanion.release.xcconfig"; path = "Target Support Files/Pods-ChromaCompanion/Pods-ChromaCompanion.release.xcconfig"; sourceTree = "<group>"; };
 		5A9C86172BF5336A00270C43 /* ChromaCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChromaCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A9C861A2BF5336A00270C43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A9C861C2BF5336A00270C43 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,11 +62,13 @@
 		5A9C86372BF5336B00270C43 /* ChromaCompanionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChromaCompanionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A9C863B2BF5336B00270C43 /* ChromaCompanionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChromaCompanionUITests.swift; sourceTree = "<group>"; };
 		5A9C863D2BF5336B00270C43 /* ChromaCompanionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChromaCompanionUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		724F61E99F337488FF0294F7 /* Pods-ChromaCompanion-ChromaCompanionUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChromaCompanion-ChromaCompanionUITests.debug.xcconfig"; path = "Target Support Files/Pods-ChromaCompanion-ChromaCompanionUITests/Pods-ChromaCompanion-ChromaCompanionUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		97C5DD40AD4A1BE6DE0F308F /* Pods_ChromaCompanion_ChromaCompanionUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChromaCompanion_ChromaCompanionUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D5148E3DB77574A5BFA293E5 /* Pods_ChromaCompanion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChromaCompanion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D7A14E717645E8881CA97498 /* Pods-ChromaCompanion-ChromaCompanionUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChromaCompanion-ChromaCompanionUITests.release.xcconfig"; path = "Target Support Files/Pods-ChromaCompanion-ChromaCompanionUITests/Pods-ChromaCompanion-ChromaCompanionUITests.release.xcconfig"; sourceTree = "<group>"; };
-		FE0DBF5C42940C5A1D1F6835 /* Pods-ChromaCompanionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChromaCompanionTests.debug.xcconfig"; path = "Target Support Files/Pods-ChromaCompanionTests/Pods-ChromaCompanionTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5AD499EB2BFE2F090060C472 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		6FB5CC4F013B6D68798255FC /* Pods_ChromaCompanion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChromaCompanion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7181F85CEFA1B18A0CC8173A /* Pods-ChromaCompanionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChromaCompanionTests.release.xcconfig"; path = "Target Support Files/Pods-ChromaCompanionTests/Pods-ChromaCompanionTests.release.xcconfig"; sourceTree = "<group>"; };
+		72353C783259D01B298C8764 /* Pods-ChromaCompanion-ChromaCompanionUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChromaCompanion-ChromaCompanionUITests.release.xcconfig"; path = "Target Support Files/Pods-ChromaCompanion-ChromaCompanionUITests/Pods-ChromaCompanion-ChromaCompanionUITests.release.xcconfig"; sourceTree = "<group>"; };
+		734F7B78BCFBF46B097233EE /* Pods-ChromaCompanionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChromaCompanionTests.debug.xcconfig"; path = "Target Support Files/Pods-ChromaCompanionTests/Pods-ChromaCompanionTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9197A8EA7B9BE333A86FDBC3 /* Pods_ChromaCompanionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChromaCompanionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C91A040DBBCAD0F2002005B6 /* Pods_ChromaCompanion_ChromaCompanionUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChromaCompanion_ChromaCompanionUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF529440BE8A8A0F41663030 /* Pods_ChromaCompanion.framework in Frameworks */,
+				BB743A6FC1EF53B49C593125 /* Pods_ChromaCompanion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10D32D5EA1818439A83E8359 /* Pods_ChromaCompanionTests.framework in Frameworks */,
+				6FE4D7C2EE5DD859E4D71A82 /* Pods_ChromaCompanionTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,23 +92,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA06E93B65432EA54175837F /* Pods_ChromaCompanion_ChromaCompanionUITests.framework in Frameworks */,
+				89BB3675E9926F8DC6CD58F3 /* Pods_ChromaCompanion_ChromaCompanionUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0225A06B7CD3B9A1D42049ED /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				D5148E3DB77574A5BFA293E5 /* Pods_ChromaCompanion.framework */,
-				97C5DD40AD4A1BE6DE0F308F /* Pods_ChromaCompanion_ChromaCompanionUITests.framework */,
-				3090E776C742B05F89268662 /* Pods_ChromaCompanionTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		5A9C860E2BF5336A00270C43 = {
 			isa = PBXGroup;
 			children = (
@@ -115,7 +107,7 @@
 				5A9C863A2BF5336B00270C43 /* ChromaCompanionUITests */,
 				5A9C86182BF5336A00270C43 /* Products */,
 				BB7A89FC02E6359EF6F7DC63 /* Pods */,
-				0225A06B7CD3B9A1D42049ED /* Frameworks */,
+				B8CC147BFCB9199448B1D733 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,6 +134,7 @@
 				5A9C86252BF5336B00270C43 /* LaunchScreen.storyboard */,
 				5A9C86282BF5336B00270C43 /* Info.plist */,
 				44E3514F2BFB9FA5005A2627 /* UIImageView.swift */,
+				5AD499EB2BFE2F090060C472 /* Launch Screen.storyboard */,
 			);
 			path = ChromaCompanion;
 			sourceTree = "<group>";
@@ -163,15 +156,25 @@
 			path = ChromaCompanionUITests;
 			sourceTree = "<group>";
 		};
+		B8CC147BFCB9199448B1D733 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6FB5CC4F013B6D68798255FC /* Pods_ChromaCompanion.framework */,
+				C91A040DBBCAD0F2002005B6 /* Pods_ChromaCompanion_ChromaCompanionUITests.framework */,
+				9197A8EA7B9BE333A86FDBC3 /* Pods_ChromaCompanionTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BB7A89FC02E6359EF6F7DC63 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4BAE27AAEEE3658888BFEEB4 /* Pods-ChromaCompanion.debug.xcconfig */,
-				572D7C872739913521124A00 /* Pods-ChromaCompanion.release.xcconfig */,
-				724F61E99F337488FF0294F7 /* Pods-ChromaCompanion-ChromaCompanionUITests.debug.xcconfig */,
-				D7A14E717645E8881CA97498 /* Pods-ChromaCompanion-ChromaCompanionUITests.release.xcconfig */,
-				FE0DBF5C42940C5A1D1F6835 /* Pods-ChromaCompanionTests.debug.xcconfig */,
-				1908552712D15898437AED73 /* Pods-ChromaCompanionTests.release.xcconfig */,
+				29A03D409777372BF8D4B17B /* Pods-ChromaCompanion.debug.xcconfig */,
+				285957E5A22FE9E9DE7CD31B /* Pods-ChromaCompanion.release.xcconfig */,
+				0C4E2E817EF2036C766D4482 /* Pods-ChromaCompanion-ChromaCompanionUITests.debug.xcconfig */,
+				72353C783259D01B298C8764 /* Pods-ChromaCompanion-ChromaCompanionUITests.release.xcconfig */,
+				734F7B78BCFBF46B097233EE /* Pods-ChromaCompanionTests.debug.xcconfig */,
+				7181F85CEFA1B18A0CC8173A /* Pods-ChromaCompanionTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -183,12 +186,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5A9C86412BF5336B00270C43 /* Build configuration list for PBXNativeTarget "ChromaCompanion" */;
 			buildPhases = (
-				313623A2FD1FC97AC7629F74 /* [CP] Check Pods Manifest.lock */,
+				595397188DFA0483981AE322 /* [CP] Check Pods Manifest.lock */,
 				5A9C86132BF5336A00270C43 /* Sources */,
 				5A9C86142BF5336A00270C43 /* Frameworks */,
 				5A9C86152BF5336A00270C43 /* Resources */,
-				AF6D73248915FE61A2631F75 /* [CP] Embed Pods Frameworks */,
-				05380A4AB608BBC47F9C0130 /* [CP] Copy Pods Resources */,
+				6805DF8351E20B8E6C6F0B82 /* [CP] Embed Pods Frameworks */,
+				11B390E8337691559A134D9D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -203,7 +206,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5A9C86442BF5336B00270C43 /* Build configuration list for PBXNativeTarget "ChromaCompanionTests" */;
 			buildPhases = (
-				7149B7183BC8AC32897EC020 /* [CP] Check Pods Manifest.lock */,
+				EBB1C33D027C59B6209DE3A6 /* [CP] Check Pods Manifest.lock */,
 				5A9C86292BF5336B00270C43 /* Sources */,
 				5A9C862A2BF5336B00270C43 /* Frameworks */,
 				5A9C862B2BF5336B00270C43 /* Resources */,
@@ -222,12 +225,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5A9C86472BF5336B00270C43 /* Build configuration list for PBXNativeTarget "ChromaCompanionUITests" */;
 			buildPhases = (
-				BAD21846A263DC9A0F116614 /* [CP] Check Pods Manifest.lock */,
+				0435D2075AFD8F183C25A58C /* [CP] Check Pods Manifest.lock */,
 				5A9C86332BF5336B00270C43 /* Sources */,
 				5A9C86342BF5336B00270C43 /* Frameworks */,
 				5A9C86352BF5336B00270C43 /* Resources */,
-				048D3262BF927E8DEA5100CF /* [CP] Embed Pods Frameworks */,
-				C94FEDF47EF81D1EF7E4C653 /* [CP] Copy Pods Resources */,
+				D037A805ADF2604192EF9988 /* [CP] Embed Pods Frameworks */,
+				5E54162D952BA8CA93AB0972 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -289,6 +292,7 @@
 			files = (
 				5A9C86242BF5336B00270C43 /* Assets.xcassets in Resources */,
 				5A9C86272BF5336B00270C43 /* Base in Resources */,
+				5AD499EC2BFE2F090060C472 /* Launch Screen.storyboard in Resources */,
 				5A9C86222BF5336A00270C43 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,102 +314,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		048D3262BF927E8DEA5100CF /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ChromaCompanion-ChromaCompanionUITests/Pods-ChromaCompanion-ChromaCompanionUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ChromaCompanion-ChromaCompanionUITests/Pods-ChromaCompanion-ChromaCompanionUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChromaCompanion-ChromaCompanionUITests/Pods-ChromaCompanion-ChromaCompanionUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		05380A4AB608BBC47F9C0130 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ChromaCompanion/Pods-ChromaCompanion-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ChromaCompanion/Pods-ChromaCompanion-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChromaCompanion/Pods-ChromaCompanion-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		313623A2FD1FC97AC7629F74 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ChromaCompanion-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7149B7183BC8AC32897EC020 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ChromaCompanionTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AF6D73248915FE61A2631F75 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ChromaCompanion/Pods-ChromaCompanion-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ChromaCompanion/Pods-ChromaCompanion-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChromaCompanion/Pods-ChromaCompanion-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BAD21846A263DC9A0F116614 /* [CP] Check Pods Manifest.lock */ = {
+		0435D2075AFD8F183C25A58C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -427,7 +336,46 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C94FEDF47EF81D1EF7E4C653 /* [CP] Copy Pods Resources */ = {
+		11B390E8337691559A134D9D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChromaCompanion/Pods-ChromaCompanion-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChromaCompanion/Pods-ChromaCompanion-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChromaCompanion/Pods-ChromaCompanion-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		595397188DFA0483981AE322 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ChromaCompanion-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E54162D952BA8CA93AB0972 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -442,6 +390,62 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChromaCompanion-ChromaCompanionUITests/Pods-ChromaCompanion-ChromaCompanionUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6805DF8351E20B8E6C6F0B82 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChromaCompanion/Pods-ChromaCompanion-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChromaCompanion/Pods-ChromaCompanion-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChromaCompanion/Pods-ChromaCompanion-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D037A805ADF2604192EF9988 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChromaCompanion-ChromaCompanionUITests/Pods-ChromaCompanion-ChromaCompanionUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChromaCompanion-ChromaCompanionUITests/Pods-ChromaCompanion-ChromaCompanionUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChromaCompanion-ChromaCompanionUITests/Pods-ChromaCompanion-ChromaCompanionUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EBB1C33D027C59B6209DE3A6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ChromaCompanionTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -633,21 +637,21 @@
 		};
 		5A9C86422BF5336B00270C43 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4BAE27AAEEE3658888BFEEB4 /* Pods-ChromaCompanion.debug.xcconfig */;
+			baseConfigurationReference = 29A03D409777372BF8D4B17B /* Pods-ChromaCompanion.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = LSFF7U8V52;
+				DEVELOPMENT_TEAM = UD3476G3Z8;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ChromaCompanion/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access to camera.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Please allow access to photo library";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -656,7 +660,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = MobileComputing.ChromaCompanion1;
+				PRODUCT_BUNDLE_IDENTIFIER = MobileComputing.ChromaCompanion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -666,21 +670,21 @@
 		};
 		5A9C86432BF5336B00270C43 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 572D7C872739913521124A00 /* Pods-ChromaCompanion.release.xcconfig */;
+			baseConfigurationReference = 285957E5A22FE9E9DE7CD31B /* Pods-ChromaCompanion.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = LSFF7U8V52;
+				DEVELOPMENT_TEAM = UD3476G3Z8;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ChromaCompanion/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access to camera.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Please allow access to photo library";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -689,7 +693,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = MobileComputing.ChromaCompanion1;
+				PRODUCT_BUNDLE_IDENTIFIER = MobileComputing.ChromaCompanion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -699,13 +703,13 @@
 		};
 		5A9C86452BF5336B00270C43 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FE0DBF5C42940C5A1D1F6835 /* Pods-ChromaCompanionTests.debug.xcconfig */;
+			baseConfigurationReference = 734F7B78BCFBF46B097233EE /* Pods-ChromaCompanionTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = LSFF7U8V52;
+				DEVELOPMENT_TEAM = UD3476G3Z8;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
@@ -721,13 +725,13 @@
 		};
 		5A9C86462BF5336B00270C43 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1908552712D15898437AED73 /* Pods-ChromaCompanionTests.release.xcconfig */;
+			baseConfigurationReference = 7181F85CEFA1B18A0CC8173A /* Pods-ChromaCompanionTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = LSFF7U8V52;
+				DEVELOPMENT_TEAM = UD3476G3Z8;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
@@ -743,16 +747,16 @@
 		};
 		5A9C86482BF5336B00270C43 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 724F61E99F337488FF0294F7 /* Pods-ChromaCompanion-ChromaCompanionUITests.debug.xcconfig */;
+			baseConfigurationReference = 0C4E2E817EF2036C766D4482 /* Pods-ChromaCompanion-ChromaCompanionUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = LSFF7U8V52;
+				DEVELOPMENT_TEAM = UD3476G3Z8;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = MobileComputing.ChromaCompanionUITests1;
+				PRODUCT_BUNDLE_IDENTIFIER = MobileComputing.ChromaCompanionUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -763,12 +767,12 @@
 		};
 		5A9C86492BF5336B00270C43 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D7A14E717645E8881CA97498 /* Pods-ChromaCompanion-ChromaCompanionUITests.release.xcconfig */;
+			baseConfigurationReference = 72353C783259D01B298C8764 /* Pods-ChromaCompanion-ChromaCompanionUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = LSFF7U8V52;
+				DEVELOPMENT_TEAM = UD3476G3Z8;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
