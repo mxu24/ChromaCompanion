@@ -648,10 +648,10 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="710"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PTX-oX-fDL">
-                                        <rect key="frame" x="-26" y="0.0" width="443.33333333333331" height="1790.3333333333333"/>
+                                        <rect key="frame" x="-26" y="0.0" width="443.33333333333331" height="1715.3333333333333"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8TH-f6-OWN">
-                                                <rect key="frame" x="0.0" y="0.0" width="443.33333333333331" height="252.33333333333334"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="443.33333333333331" height="248.33333333333334"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="tinted" image="academia-cover" imagePlacement="top" title="Academia" imagePadding="0.0" titleAlignment="center">
                                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -661,7 +661,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C6m-mu-ZI1">
-                                                <rect key="frame" x="0.0" y="252.33333333333331" width="443.33333333333331" height="259"/>
+                                                <rect key="frame" x="0.0" y="248.33333333333331" width="443.33333333333331" height="246"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="tinted" image="coastal-cover" imagePlacement="top" title="Coastal" imagePadding="0.0">
                                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -671,7 +671,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tlq-oq-iCO">
-                                                <rect key="frame" x="0.0" y="511.33333333333337" width="443.33333333333331" height="277"/>
+                                                <rect key="frame" x="0.0" y="494.33333333333331" width="443.33333333333331" height="251.33333333333331"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="tinted" image="cottagecore-cover" imagePlacement="top" title="Cottage Core" imagePadding="0.0" titleAlignment="center">
                                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -681,7 +681,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZK-hl-qIC">
-                                                <rect key="frame" x="0.0" y="788.33333333333337" width="443.33333333333331" height="249.33333333333337"/>
+                                                <rect key="frame" x="0.0" y="745.66666666666663" width="443.33333333333331" height="244.33333333333337"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="tinted" image="emo-cover" imagePlacement="top" title="Emo" imagePadding="0.0" titleAlignment="center">
                                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -691,7 +691,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OHK-u3-8g2">
-                                                <rect key="frame" x="0.0" y="1037.6666666666667" width="443.33333333333331" height="247.66666666666674"/>
+                                                <rect key="frame" x="0.0" y="990" width="443.33333333333331" height="241"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="tinted" image="professional-cover" imagePlacement="top" title="Professional" imagePadding="0.0" titleAlignment="center">
                                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -701,7 +701,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6W-sr-wR4">
-                                                <rect key="frame" x="0.0" y="1285.3333333333333" width="443.33333333333331" height="252.33333333333326"/>
+                                                <rect key="frame" x="0.0" y="1231" width="443.33333333333331" height="241.66666666666674"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="tinted" image="streetwear-cover" imagePlacement="top" title="Streetwear" imagePadding="0.0" titleAlignment="center">
                                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -711,7 +711,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="08i-3z-Krl">
-                                                <rect key="frame" x="0.0" y="1537.6666666666667" width="443.33333333333331" height="252.66666666666674"/>
+                                                <rect key="frame" x="0.0" y="1472.6666666666667" width="443.33333333333331" height="242.66666666666674"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="tinted" image="y2k-cover" imagePlacement="top" title="Y2K" imagePadding="0.0" titleAlignment="center">
                                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -802,52 +802,64 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UUH-F5-omH">
-                                        <rect key="frame" x="-26" y="0.0" width="443.33333333333331" height="4750"/>
+                                        <rect key="frame" x="-26" y="0.0" width="443.33333333333331" height="5020"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="academia1" translatesAutoresizingMaskIntoConstraints="NO" id="xwK-sF-3MN">
-                                                <rect key="frame" x="0.0" y="0.0" width="443.33333333333331" height="600"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SwipeDown" translatesAutoresizingMaskIntoConstraints="NO" id="xwK-sF-3MN">
+                                                <rect key="frame" x="0.0" y="0.0" width="443.33333333333331" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="600" id="EJE-jy-cT5"/>
+                                                    <constraint firstAttribute="height" constant="50" id="h95-a4-0g3"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Academia" translatesAutoresizingMaskIntoConstraints="NO" id="Z2n-Hr-ddu">
+                                                <rect key="frame" x="0.0" y="50" width="443.33333333333331" height="220"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="220" id="utX-IU-37Z"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="academia1" translatesAutoresizingMaskIntoConstraints="NO" id="e5f-JV-3vg">
+                                                <rect key="frame" x="0.0" y="270" width="443.33333333333331" height="600"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="600" id="EaX-sf-Qtq"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="academia7" translatesAutoresizingMaskIntoConstraints="NO" id="cGH-k2-ZQp">
-                                                <rect key="frame" x="0.0" y="600" width="443.33333333333331" height="600"/>
+                                                <rect key="frame" x="0.0" y="870" width="443.33333333333331" height="600"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="600" id="9km-Da-t2S"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="academia3" translatesAutoresizingMaskIntoConstraints="NO" id="Tnw-V8-eR7">
-                                                <rect key="frame" x="0.0" y="1200" width="443.33333333333331" height="600"/>
+                                                <rect key="frame" x="0.0" y="1470" width="443.33333333333331" height="600"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="600" id="QCc-Ud-PP4"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="academia4" translatesAutoresizingMaskIntoConstraints="NO" id="ZbM-4i-sEE">
-                                                <rect key="frame" x="0.0" y="1800" width="443.33333333333331" height="600"/>
+                                                <rect key="frame" x="0.0" y="2070" width="443.33333333333331" height="600"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="600" id="ZAj-xj-mTz"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="academia6" translatesAutoresizingMaskIntoConstraints="NO" id="k2b-aZ-xqq">
-                                                <rect key="frame" x="0.0" y="2400" width="443.33333333333331" height="550"/>
+                                                <rect key="frame" x="0.0" y="2670" width="443.33333333333331" height="550"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="550" id="Fgh-Xf-yLV"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="academia5" translatesAutoresizingMaskIntoConstraints="NO" id="BKz-sC-Phw">
-                                                <rect key="frame" x="0.0" y="2950" width="443.33333333333331" height="600"/>
+                                                <rect key="frame" x="0.0" y="3220" width="443.33333333333331" height="600"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="600" id="lWd-QH-4nr"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="academia2" translatesAutoresizingMaskIntoConstraints="NO" id="9Je-ok-Gx7">
-                                                <rect key="frame" x="0.0" y="3550" width="443.33333333333331" height="400"/>
+                                                <rect key="frame" x="0.0" y="3820" width="443.33333333333331" height="400"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="400" id="dyn-z6-Ujv"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="academia8" translatesAutoresizingMaskIntoConstraints="NO" id="pb0-mj-Fs1">
-                                                <rect key="frame" x="0.0" y="3950" width="443.33333333333331" height="800"/>
+                                                <rect key="frame" x="0.0" y="4220" width="443.33333333333331" height="800"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="800" id="PbT-Db-nQr"/>
                                                 </constraints>
@@ -896,52 +908,64 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="H0D-et-IOT">
-                                        <rect key="frame" x="-26" y="0.0" width="443.33333333333331" height="4700"/>
+                                        <rect key="frame" x="-26" y="0.0" width="443.33333333333331" height="4970"/>
                                         <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SwipeDown" translatesAutoresizingMaskIntoConstraints="NO" id="P8n-3z-8fZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="443.33333333333331" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="StG-NK-EyV"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Coastal" translatesAutoresizingMaskIntoConstraints="NO" id="m9x-cU-vEv">
+                                                <rect key="frame" x="0.0" y="50" width="443.33333333333331" height="220"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="220" id="a75-93-IMn"/>
+                                                </constraints>
+                                            </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coastal1" translatesAutoresizingMaskIntoConstraints="NO" id="zsB-GR-Qec">
-                                                <rect key="frame" x="0.0" y="0.0" width="443.33333333333331" height="450"/>
+                                                <rect key="frame" x="0.0" y="270" width="443.33333333333331" height="450"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="450" id="Bzs-Ga-tkK"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coastal2" translatesAutoresizingMaskIntoConstraints="NO" id="5zs-ea-BSO">
-                                                <rect key="frame" x="0.0" y="450" width="443.33333333333331" height="600"/>
+                                                <rect key="frame" x="0.0" y="720" width="443.33333333333331" height="600"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="600" id="UPD-s6-rEa"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coastal8" translatesAutoresizingMaskIntoConstraints="NO" id="1c5-5j-cLu">
-                                                <rect key="frame" x="0.0" y="1050" width="443.33333333333331" height="600"/>
+                                                <rect key="frame" x="0.0" y="1320" width="443.33333333333331" height="600"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="600" id="kkX-0d-J2B"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coastal4" translatesAutoresizingMaskIntoConstraints="NO" id="vvk-bU-bmm">
-                                                <rect key="frame" x="0.0" y="1650" width="443.33333333333331" height="600"/>
+                                                <rect key="frame" x="0.0" y="1920" width="443.33333333333331" height="600"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="600" id="arO-nx-eMp"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coastal5" translatesAutoresizingMaskIntoConstraints="NO" id="uvY-ss-hDB">
-                                                <rect key="frame" x="0.0" y="2250" width="443.33333333333331" height="900"/>
+                                                <rect key="frame" x="0.0" y="2520" width="443.33333333333331" height="900"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="900" id="loG-3P-7MA"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coastal6" translatesAutoresizingMaskIntoConstraints="NO" id="vPd-nr-sNO">
-                                                <rect key="frame" x="0.0" y="3150" width="443.33333333333331" height="600"/>
+                                                <rect key="frame" x="0.0" y="3420" width="443.33333333333331" height="600"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="600" id="faw-AM-hr6"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coastal7" translatesAutoresizingMaskIntoConstraints="NO" id="gdu-Mt-HKk">
-                                                <rect key="frame" x="0.0" y="3750" width="443.33333333333331" height="500"/>
+                                                <rect key="frame" x="0.0" y="4020" width="443.33333333333331" height="500"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="500" id="E1r-4J-iE8"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coastal3" translatesAutoresizingMaskIntoConstraints="NO" id="jYL-43-cwD">
-                                                <rect key="frame" x="0.0" y="4250" width="443.33333333333331" height="450"/>
+                                                <rect key="frame" x="0.0" y="4520" width="443.33333333333331" height="450"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="450" id="XEd-wp-iCd"/>
                                                 </constraints>
@@ -990,52 +1014,64 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BdI-uz-2TM">
-                                        <rect key="frame" x="-26" y="0.0" width="443.33333333333331" height="4470"/>
+                                        <rect key="frame" x="-26" y="0.0" width="443.33333333333331" height="4740"/>
                                         <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SwipeDown" translatesAutoresizingMaskIntoConstraints="NO" id="r8t-gD-9Ys">
+                                                <rect key="frame" x="0.0" y="0.0" width="443.33333333333331" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="Qzd-aU-P46"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cottagecore" translatesAutoresizingMaskIntoConstraints="NO" id="Ane-X1-WNK">
+                                                <rect key="frame" x="0.0" y="50" width="443.33333333333331" height="220"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="220" id="Jtx-O7-5Wv"/>
+                                                </constraints>
+                                            </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cottagecore1" translatesAutoresizingMaskIntoConstraints="NO" id="qY8-wz-GH2">
-                                                <rect key="frame" x="0.0" y="0.0" width="443.33333333333331" height="500"/>
+                                                <rect key="frame" x="0.0" y="270" width="443.33333333333331" height="500"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="500" id="6PU-Pc-lgN"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cottagecore2" translatesAutoresizingMaskIntoConstraints="NO" id="ZyD-NF-Sbr">
-                                                <rect key="frame" x="0.0" y="500" width="443.33333333333331" height="520"/>
+                                                <rect key="frame" x="0.0" y="770" width="443.33333333333331" height="520"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="520" id="Dai-2d-brV"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cottagecore3" translatesAutoresizingMaskIntoConstraints="NO" id="SWB-hE-fnF">
-                                                <rect key="frame" x="0.0" y="1020" width="443.33333333333331" height="700"/>
+                                                <rect key="frame" x="0.0" y="1290" width="443.33333333333331" height="700"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="700" id="EFI-5a-rj1"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cottagecore4" translatesAutoresizingMaskIntoConstraints="NO" id="l1q-J4-6gW">
-                                                <rect key="frame" x="0.0" y="1720" width="443.33333333333331" height="450"/>
+                                                <rect key="frame" x="0.0" y="1990" width="443.33333333333331" height="450"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="450" id="8tI-Yd-Oiu"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cottagecore5" translatesAutoresizingMaskIntoConstraints="NO" id="VB9-HS-PI9">
-                                                <rect key="frame" x="0.0" y="2170" width="443.33333333333331" height="450"/>
+                                                <rect key="frame" x="0.0" y="2440" width="443.33333333333331" height="450"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="450" id="6Bj-i4-v2o"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cottagecore6" translatesAutoresizingMaskIntoConstraints="NO" id="ujC-VZ-TZI">
-                                                <rect key="frame" x="0.0" y="2620" width="443.33333333333331" height="600"/>
+                                                <rect key="frame" x="0.0" y="2890" width="443.33333333333331" height="600"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="600" id="sqO-mV-tTT"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cottagecore7" translatesAutoresizingMaskIntoConstraints="NO" id="vIi-Ya-APb">
-                                                <rect key="frame" x="0.0" y="3220" width="443.33333333333331" height="550"/>
+                                                <rect key="frame" x="0.0" y="3490" width="443.33333333333331" height="550"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="550" id="wl6-Od-B0l"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cottagecore8" translatesAutoresizingMaskIntoConstraints="NO" id="04B-oI-b2w">
-                                                <rect key="frame" x="0.0" y="3770" width="443.33333333333331" height="700"/>
+                                                <rect key="frame" x="0.0" y="4040" width="443.33333333333331" height="700"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="700" id="nVA-0T-HlD"/>
                                                 </constraints>
@@ -1084,52 +1120,64 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="568-wT-SjT">
-                                        <rect key="frame" x="-26" y="0.0" width="443.33333333333331" height="5340"/>
+                                        <rect key="frame" x="-26" y="0.0" width="443.33333333333331" height="5610"/>
                                         <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SwipeDown" translatesAutoresizingMaskIntoConstraints="NO" id="ZrJ-WY-ajE">
+                                                <rect key="frame" x="0.0" y="0.0" width="443.33333333333331" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="FCf-cJ-dZ1"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Emo" translatesAutoresizingMaskIntoConstraints="NO" id="ffX-JU-WEc">
+                                                <rect key="frame" x="0.0" y="50" width="443.33333333333331" height="220"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="220" id="Xdp-l2-KY2"/>
+                                                </constraints>
+                                            </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emo1" translatesAutoresizingMaskIntoConstraints="NO" id="ITF-Zw-IUw">
-                                                <rect key="frame" x="0.0" y="0.0" width="443.33333333333331" height="770"/>
+                                                <rect key="frame" x="0.0" y="270" width="443.33333333333331" height="770"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="770" id="myf-cN-6Ra"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emo2" translatesAutoresizingMaskIntoConstraints="NO" id="BS8-Z4-zrV">
-                                                <rect key="frame" x="0.0" y="770" width="443.33333333333331" height="770"/>
+                                                <rect key="frame" x="0.0" y="1040" width="443.33333333333331" height="770"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="770" id="jHu-rD-gyu"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emo3" translatesAutoresizingMaskIntoConstraints="NO" id="xCd-pj-x4j">
-                                                <rect key="frame" x="0.0" y="1540" width="443.33333333333331" height="500"/>
+                                                <rect key="frame" x="0.0" y="1810" width="443.33333333333331" height="500"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="500" id="yMV-bh-Ml1"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emo5" translatesAutoresizingMaskIntoConstraints="NO" id="P1c-oX-9ii">
-                                                <rect key="frame" x="0.0" y="2040" width="443.33333333333331" height="770"/>
+                                                <rect key="frame" x="0.0" y="2310" width="443.33333333333331" height="770"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="770" id="Nm4-sE-7Wv"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emo6" translatesAutoresizingMaskIntoConstraints="NO" id="X9M-t5-HFS">
-                                                <rect key="frame" x="0.0" y="2810" width="443.33333333333331" height="700"/>
+                                                <rect key="frame" x="0.0" y="3080" width="443.33333333333331" height="700"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="700" id="Vwa-4H-Vec"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emo7" translatesAutoresizingMaskIntoConstraints="NO" id="iNs-KR-mkU">
-                                                <rect key="frame" x="0.0" y="3510" width="443.33333333333331" height="730"/>
+                                                <rect key="frame" x="0.0" y="3780" width="443.33333333333331" height="730"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="730" id="78W-lV-tCx"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emo4" translatesAutoresizingMaskIntoConstraints="NO" id="W3H-jt-MfQ">
-                                                <rect key="frame" x="0.0" y="4240" width="443.33333333333331" height="400"/>
+                                                <rect key="frame" x="0.0" y="4510" width="443.33333333333331" height="400"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="400" id="IOJ-2f-y98"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emo8" translatesAutoresizingMaskIntoConstraints="NO" id="BuV-DK-bpX">
-                                                <rect key="frame" x="0.0" y="4640" width="443.33333333333331" height="700"/>
+                                                <rect key="frame" x="0.0" y="4910" width="443.33333333333331" height="700"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="700" id="B3c-4J-CkG"/>
                                                 </constraints>
@@ -1178,52 +1226,64 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="z2i-sY-jla">
-                                        <rect key="frame" x="-26" y="0.0" width="443.33333333333331" height="4850"/>
+                                        <rect key="frame" x="-26" y="0.0" width="443.33333333333331" height="5120"/>
                                         <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SwipeDown" translatesAutoresizingMaskIntoConstraints="NO" id="A1B-E2-lCI">
+                                                <rect key="frame" x="0.0" y="0.0" width="443.33333333333331" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="OGm-D5-nDE"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Professional" translatesAutoresizingMaskIntoConstraints="NO" id="7an-my-gg9">
+                                                <rect key="frame" x="0.0" y="50" width="443.33333333333331" height="220"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="220" id="nvF-Fe-a6U"/>
+                                                </constraints>
+                                            </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="professional1" translatesAutoresizingMaskIntoConstraints="NO" id="RLn-Lh-BwR">
-                                                <rect key="frame" x="0.0" y="0.0" width="443.33333333333331" height="500"/>
+                                                <rect key="frame" x="0.0" y="270" width="443.33333333333331" height="500"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="500" id="exr-GH-Smy"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="professional3" translatesAutoresizingMaskIntoConstraints="NO" id="jOc-He-Fsg">
-                                                <rect key="frame" x="0.0" y="500" width="443.33333333333331" height="600"/>
+                                                <rect key="frame" x="0.0" y="770" width="443.33333333333331" height="600"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="600" id="UEd-nx-wWs"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="professional4" translatesAutoresizingMaskIntoConstraints="NO" id="GPl-D4-Qbb">
-                                                <rect key="frame" x="0.0" y="1100" width="443.33333333333331" height="500"/>
+                                                <rect key="frame" x="0.0" y="1370" width="443.33333333333331" height="500"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="500" id="M7b-vn-h5t"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="professional2" translatesAutoresizingMaskIntoConstraints="NO" id="oM3-Yy-KsV">
-                                                <rect key="frame" x="0.0" y="1600" width="443.33333333333331" height="800"/>
+                                                <rect key="frame" x="0.0" y="1870" width="443.33333333333331" height="800"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="800" id="pD6-eL-d84"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="professional5" translatesAutoresizingMaskIntoConstraints="NO" id="8Ec-OH-JOG">
-                                                <rect key="frame" x="0.0" y="2400" width="443.33333333333331" height="700"/>
+                                                <rect key="frame" x="0.0" y="2670" width="443.33333333333331" height="700"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="700" id="lHb-sh-bsq"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="professional6" translatesAutoresizingMaskIntoConstraints="NO" id="f4X-XM-UOv">
-                                                <rect key="frame" x="0.0" y="3100" width="443.33333333333331" height="600"/>
+                                                <rect key="frame" x="0.0" y="3370" width="443.33333333333331" height="600"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="600" id="adF-hV-oEs"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="professional7" translatesAutoresizingMaskIntoConstraints="NO" id="7wy-wt-KdR">
-                                                <rect key="frame" x="0.0" y="3700" width="443.33333333333331" height="600"/>
+                                                <rect key="frame" x="0.0" y="3970" width="443.33333333333331" height="600"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="600" id="az7-sw-2oH"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="professional8" translatesAutoresizingMaskIntoConstraints="NO" id="x9q-oR-yCl">
-                                                <rect key="frame" x="0.0" y="4300" width="443.33333333333331" height="550"/>
+                                                <rect key="frame" x="0.0" y="4570" width="443.33333333333331" height="550"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="550" id="J5j-dT-aDs"/>
                                                 </constraints>
@@ -1272,52 +1332,64 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="x0I-Ks-ZRf">
-                                        <rect key="frame" x="-26" y="0.0" width="443.33333333333331" height="5300"/>
+                                        <rect key="frame" x="-26" y="0.0" width="443.33333333333331" height="5570"/>
                                         <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SwipeDown" translatesAutoresizingMaskIntoConstraints="NO" id="sZg-4k-OQu">
+                                                <rect key="frame" x="0.0" y="0.0" width="443.33333333333331" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="WDM-ss-ejW"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Streetwear" translatesAutoresizingMaskIntoConstraints="NO" id="JpN-PA-a0E">
+                                                <rect key="frame" x="0.0" y="50" width="443.33333333333331" height="220"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="220" id="YaZ-ue-oSD"/>
+                                                </constraints>
+                                            </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="streetwear1" translatesAutoresizingMaskIntoConstraints="NO" id="1lI-49-i5r">
-                                                <rect key="frame" x="0.0" y="0.0" width="443.33333333333331" height="600"/>
+                                                <rect key="frame" x="0.0" y="270" width="443.33333333333331" height="600"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="600" id="dHW-wI-61B"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="streetwear2" translatesAutoresizingMaskIntoConstraints="NO" id="elW-zm-6oE">
-                                                <rect key="frame" x="0.0" y="600" width="443.33333333333331" height="650"/>
+                                                <rect key="frame" x="0.0" y="870" width="443.33333333333331" height="650"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="650" id="Kvg-rC-CeH"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="streetwear3" translatesAutoresizingMaskIntoConstraints="NO" id="CpT-wA-e6a">
-                                                <rect key="frame" x="0.0" y="1250" width="443.33333333333331" height="600"/>
+                                                <rect key="frame" x="0.0" y="1520" width="443.33333333333331" height="600"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="600" id="mSB-26-pbb"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="streetwear4" translatesAutoresizingMaskIntoConstraints="NO" id="075-5u-O8a">
-                                                <rect key="frame" x="0.0" y="1850" width="443.33333333333331" height="600"/>
+                                                <rect key="frame" x="0.0" y="2120" width="443.33333333333331" height="600"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="600" id="bgg-mj-tsZ"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="streetwear5" translatesAutoresizingMaskIntoConstraints="NO" id="V9e-mz-9YD">
-                                                <rect key="frame" x="0.0" y="2450" width="443.33333333333331" height="700"/>
+                                                <rect key="frame" x="0.0" y="2720" width="443.33333333333331" height="700"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="700" id="Up0-ld-NKU"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="streetwear6" translatesAutoresizingMaskIntoConstraints="NO" id="vLI-9f-eBX">
-                                                <rect key="frame" x="0.0" y="3150" width="443.33333333333331" height="750"/>
+                                                <rect key="frame" x="0.0" y="3420" width="443.33333333333331" height="750"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="750" id="Kax-Yb-bg9"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="streetwear7" translatesAutoresizingMaskIntoConstraints="NO" id="T7N-cB-yo1">
-                                                <rect key="frame" x="0.0" y="3900" width="443.33333333333331" height="600"/>
+                                                <rect key="frame" x="0.0" y="4170" width="443.33333333333331" height="600"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="600" id="GsT-bb-ALt"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="streetwear8" translatesAutoresizingMaskIntoConstraints="NO" id="T47-gB-wrA">
-                                                <rect key="frame" x="0.0" y="4500" width="443.33333333333331" height="800"/>
+                                                <rect key="frame" x="0.0" y="4770" width="443.33333333333331" height="800"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="800" id="fPJ-hz-iEM"/>
                                                 </constraints>
@@ -1366,52 +1438,64 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="k41-mE-u7Q">
-                                        <rect key="frame" x="-26" y="0.0" width="443.33333333333331" height="4050"/>
+                                        <rect key="frame" x="-26" y="0.0" width="443.33333333333331" height="4320"/>
                                         <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SwipeDown" translatesAutoresizingMaskIntoConstraints="NO" id="Sfg-gV-hNB">
+                                                <rect key="frame" x="0.0" y="0.0" width="443.33333333333331" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="iV9-qB-3xb"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Y2K" translatesAutoresizingMaskIntoConstraints="NO" id="4Tn-iV-Z8d">
+                                                <rect key="frame" x="0.0" y="50" width="443.33333333333331" height="220"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="220" id="hpe-dW-V6e"/>
+                                                </constraints>
+                                            </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="y2k1" translatesAutoresizingMaskIntoConstraints="NO" id="VkX-QV-MSK">
-                                                <rect key="frame" x="0.0" y="0.0" width="443.33333333333331" height="600"/>
+                                                <rect key="frame" x="0.0" y="270" width="443.33333333333331" height="600"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="600" id="nai-Pk-DSd"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="y2k2" translatesAutoresizingMaskIntoConstraints="NO" id="YLE-d5-aua">
-                                                <rect key="frame" x="0.0" y="600" width="443.33333333333331" height="600"/>
+                                                <rect key="frame" x="0.0" y="870" width="443.33333333333331" height="600"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="600" id="YfT-d0-ZMG"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="y2k3" translatesAutoresizingMaskIntoConstraints="NO" id="mP4-Hd-c4j">
-                                                <rect key="frame" x="0.0" y="1200" width="443.33333333333331" height="400"/>
+                                                <rect key="frame" x="0.0" y="1470" width="443.33333333333331" height="400"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="400" id="xWT-qO-5BW"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="y2k4" translatesAutoresizingMaskIntoConstraints="NO" id="UBy-XO-ISr">
-                                                <rect key="frame" x="0.0" y="1600" width="443.33333333333331" height="300"/>
+                                                <rect key="frame" x="0.0" y="1870" width="443.33333333333331" height="300"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="300" id="V46-X2-eTX"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="y2k5" translatesAutoresizingMaskIntoConstraints="NO" id="V9Y-df-BBj">
-                                                <rect key="frame" x="0.0" y="1900" width="443.33333333333331" height="400"/>
+                                                <rect key="frame" x="0.0" y="2170" width="443.33333333333331" height="400"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="400" id="7wK-mk-m7X"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="y2k6" translatesAutoresizingMaskIntoConstraints="NO" id="oi6-fR-azv">
-                                                <rect key="frame" x="0.0" y="2300" width="443.33333333333331" height="600"/>
+                                                <rect key="frame" x="0.0" y="2570" width="443.33333333333331" height="600"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="600" id="ogm-nH-BuO"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="y2k7" translatesAutoresizingMaskIntoConstraints="NO" id="Ug4-mf-66N">
-                                                <rect key="frame" x="0.0" y="2900" width="443.33333333333331" height="600"/>
+                                                <rect key="frame" x="0.0" y="3170" width="443.33333333333331" height="600"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="600" id="4QL-cZ-wfb"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="y2k8" translatesAutoresizingMaskIntoConstraints="NO" id="mQj-dq-WDm">
-                                                <rect key="frame" x="0.0" y="3500" width="443.33333333333331" height="550"/>
+                                                <rect key="frame" x="0.0" y="3770" width="443.33333333333331" height="550"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="550" id="FQP-b9-AMT"/>
                                                 </constraints>
@@ -1469,6 +1553,14 @@
     </scenes>
     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
+        <image name="Academia" width="381" height="200"/>
+        <image name="Coastal" width="381" height="200"/>
+        <image name="Cottagecore" width="381" height="200"/>
+        <image name="Emo" width="381" height="200"/>
+        <image name="Professional" width="381" height="200"/>
+        <image name="Streetwear" width="381" height="200"/>
+        <image name="SwipeDown" width="381" height="115.66666412353516"/>
+        <image name="Y2K" width="381" height="200"/>
         <image name="academia-cover" width="381.33334350585938" height="214"/>
         <image name="academia1" width="733" height="1154"/>
         <image name="academia2" width="564" height="564"/>
@@ -1540,7 +1632,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
