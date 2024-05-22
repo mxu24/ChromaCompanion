@@ -5,7 +5,6 @@ import MLKit
 import PhotosUI
 import CropViewController
 
-
 class ViewController: UIViewController {
     
     @IBOutlet var imageView: UIImageView!
@@ -308,6 +307,42 @@ class ColorAnalysisViewController: UIViewController {
     @IBOutlet weak var backgroundColorLabel: UILabel!
     @IBOutlet weak var detailColorLabel: UILabel!
     
+    @IBOutlet weak var hueGraphView: UIView!
+    @IBOutlet weak var hueIndicator: UIView!
+    
+    @IBOutlet weak var saturationGraphView: UIView!
+    @IBOutlet weak var saturationIndicator: UIView!
+    
+    @IBOutlet weak var brightnessGraphView: UIView!
+    @IBOutlet weak var brightnessIndicator: UIView!
+    
+    @IBOutlet weak var hueGraphView2: UIView!
+    @IBOutlet weak var hueIndicator2: UIView!
+    
+    @IBOutlet weak var saturationGraphView2: UIView!
+    @IBOutlet weak var saturationIndicator2: UIView!
+    
+    @IBOutlet weak var brightnessGraphView2: UIView!
+    @IBOutlet weak var brightnessIndicator2: UIView!
+    
+    @IBOutlet weak var hueGraphView3: UIView!
+    @IBOutlet weak var hueIndicator3: UIView!
+    
+    @IBOutlet weak var saturationGraphView3: UIView!
+    @IBOutlet weak var saturationIndicator3: UIView!
+    
+    @IBOutlet weak var brightnessGraphView3: UIView!
+    @IBOutlet weak var brightnessIndicator3: UIView!
+    
+    @IBOutlet weak var hueGraphView4: UIView!
+    @IBOutlet weak var hueIndicator4: UIView!
+    
+    @IBOutlet weak var saturationGraphView4: UIView!
+    @IBOutlet weak var saturationIndicator4: UIView!
+    
+    @IBOutlet weak var brightnessGraphView4: UIView!
+    @IBOutlet weak var brightnessIndicator4: UIView!
+    
     var primaryColor: UIColor?
     var secondaryColor: UIColor?
     var backgroundColor: UIColor?
@@ -317,10 +352,16 @@ class ColorAnalysisViewController: UIViewController {
     var secondaryColorName: String?
     var backgroundColorName: String?
     var detailColorName: String?
+    var circleLeadingConstraint: NSLayoutConstraint!
+    var circleLeadingConstraints: NSLayoutConstraint!
+    var circleLeadingConstraintss: NSLayoutConstraint!
+    var circleLeadingConstraint2: NSLayoutConstraint!
+    var circleLeadingConstraints2: NSLayoutConstraint!
+    var circleLeadingConstraintss2: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupGraphViews()
         print("Background: \(backgroundColor), Primary: \(primaryColor), Secondary: \(secondaryColor), Detail: \(detailColor)")
         // Set the background colors of the views to display the colors
         if let primaryColor = primaryColor {
@@ -351,6 +392,347 @@ class ColorAnalysisViewController: UIViewController {
         secondaryColorLabel.text = secondaryColorName
         backgroundColorLabel.text = backgroundColorName
         detailColorLabel.text = detailColorName
+    }
+    private func setupGraphViews() {
+        setupGraphView(hueGraphView, title: "Hue")
+        setupGraphView(hueGraphView2, title: "Hue")
+        setupGraphView(hueGraphView3, title: "Hue")
+        setupGraphView(hueGraphView4, title: "Hue")
+//        setupIndicator(hueIndicator, for: hueGraphView)
+        
+        setupGraphView(saturationGraphView, title: "Saturation")
+        setupGraphView(saturationGraphView2, title: "Saturation")
+        setupGraphView(saturationGraphView3, title: "Saturation")
+        setupGraphView(saturationGraphView4, title: "Saturation")
+//        setupIndicator(saturationIndicator, for: saturationGraphView)
+        
+        setupBrightnessGraphView()
+        setupBrightnessGraphView2()
+        setupBrightnessGraphView3()
+        setupBrightnessGraphView4()
+        
+//        setupIndicator(brightnessIndicator, for: brightnessGraphView)
+        updateIndicators(for: backgroundColor ?? UIColor.clear)
+        updateIndicators2(for: primaryColor ?? UIColor.clear)
+    }
+    
+    private func setupGraphView(_ graphView: UIView, title: String) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = graphView.bounds
+        
+        if title == "Hue" {
+            gradientLayer.colors = (0...360).map { hue in
+                UIColor(hue: CGFloat(hue) / 360.0, saturation: 1.0, brightness: 1.0, alpha: 1.0).cgColor
+            }
+        } else if title == "Saturation" {
+            let hue: CGFloat = 0.0
+            gradientLayer.colors = [
+                UIColor(hue: hue, saturation: 0.0, brightness: 1.0, alpha: 1.0).cgColor,
+                UIColor(hue: hue, saturation: 1.0, brightness: 1.0, alpha: 1.0).cgColor
+            ]
+        }
+        
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
+        graphView.layer.addSublayer(gradientLayer)
+    }
+    
+    private func setupBrightnessGraphView() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = brightnessGraphView.bounds
+        gradientLayer.colors = [
+            UIColor.black.cgColor,
+            UIColor.white.cgColor
+        ]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
+        brightnessGraphView.layer.addSublayer(gradientLayer)
+
+    }
+    
+    private func setupBrightnessGraphView2() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = brightnessGraphView2.bounds
+        gradientLayer.colors = [
+            UIColor.black.cgColor,
+            UIColor.white.cgColor
+        ]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
+        brightnessGraphView2.layer.addSublayer(gradientLayer)
+
+    }
+    
+    private func setupBrightnessGraphView3() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = brightnessGraphView3.bounds
+        gradientLayer.colors = [
+            UIColor.black.cgColor,
+            UIColor.white.cgColor
+        ]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
+        brightnessGraphView3.layer.addSublayer(gradientLayer)
+
+    }
+    
+    private func setupBrightnessGraphView4() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = brightnessGraphView4.bounds
+        gradientLayer.colors = [
+            UIColor.black.cgColor,
+            UIColor.white.cgColor
+        ]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
+        brightnessGraphView4.layer.addSublayer(gradientLayer)
+
+    }
+    
+    private func setupIndicator(_ indicator: UIView, for graphView: UIView, with value: CGFloat) {
+        print("idk")
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.backgroundColor = .white
+        indicator.layer.borderColor = UIColor.black.cgColor
+        indicator.layer.borderWidth = 2
+        indicator.layer.cornerRadius = 5
+        graphView.addSubview(indicator)
+    
+        NSLayoutConstraint.activate([
+            indicator.widthAnchor.constraint(equalToConstant: 10),
+            indicator.heightAnchor.constraint(equalToConstant: 10),
+            indicator.centerYAnchor.constraint(equalTo: graphView.centerYAnchor)
+        ])
+        let position = 32 + (325 * value)
+        circleLeadingConstraint = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
+        circleLeadingConstraint.isActive = true
+
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            self.updateCirclePosition(to: position)
+        }
+        
+    }
+    
+    private func setupIndicators(_ indicator: UIView, for graphView: UIView, with value: CGFloat) {
+        print("idk")
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.backgroundColor = .white
+        indicator.layer.borderColor = UIColor.black.cgColor
+        indicator.layer.borderWidth = 2
+        indicator.layer.cornerRadius = 5
+        graphView.addSubview(indicator)
+    
+        NSLayoutConstraint.activate([
+            indicator.widthAnchor.constraint(equalToConstant: 10),
+            indicator.heightAnchor.constraint(equalToConstant: 10),
+            indicator.centerYAnchor.constraint(equalTo: graphView.centerYAnchor)
+        ])
+        let position = 32 + (325 * value)
+        circleLeadingConstraints = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
+        circleLeadingConstraints.isActive = true
+
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            self.updateCirclePositions(to: position)
+        }
+        
+    }
+    
+    private func setupIndicatorss(_ indicator: UIView, for graphView: UIView, with value: CGFloat) {
+        print("idk")
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.backgroundColor = .white
+        indicator.layer.borderColor = UIColor.black.cgColor
+        indicator.layer.borderWidth = 2
+        indicator.layer.cornerRadius = 5
+        graphView.addSubview(indicator)
+    
+        NSLayoutConstraint.activate([
+            indicator.widthAnchor.constraint(equalToConstant: 10),
+            indicator.heightAnchor.constraint(equalToConstant: 10),
+            indicator.centerYAnchor.constraint(equalTo: graphView.centerYAnchor)
+        ])
+        let position = 32 + (325 * value)
+        circleLeadingConstraintss = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
+        circleLeadingConstraintss.isActive = true
+
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            self.updateCirclePositionss(to: position)
+        }
+        
+    }
+    
+    func updateCirclePosition(to position: CGFloat) {
+        circleLeadingConstraint.constant = position
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func updateCirclePositions(to position: CGFloat) {
+        circleLeadingConstraints.constant = position
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func updateCirclePositionss(to position: CGFloat) {
+        circleLeadingConstraintss.constant = position
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    private func updateIndicators(for color: UIColor) {
+        var hue: CGFloat = 0
+        var saturation: CGFloat = 0
+        var brightness: CGFloat = 0
+        var alpha: CGFloat = 0
+        
+        color.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
+        
+        // Update hue indicator
+        print("hue")
+        print(hue)
+        setupIndicator(hueIndicator, for: hueGraphView, with: hue)
+        
+        // Update saturation indicator
+        print("saturation")
+        print(saturation)
+    
+        setupIndicators(saturationIndicator, for: saturationGraphView, with: saturation)
+        
+        // Update brightness indicator
+        print("brightness")
+        print(brightness)
+        setupIndicatorss(brightnessIndicator, for: brightnessGraphView, with: brightness)
+    }
+    
+    private func setupIndicator2(_ indicator: UIView, for graphView: UIView, with value: CGFloat) {
+        print("idk")
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.backgroundColor = .white
+        indicator.layer.borderColor = UIColor.black.cgColor
+        indicator.layer.borderWidth = 2
+        indicator.layer.cornerRadius = 5
+        graphView.addSubview(indicator)
+    
+        NSLayoutConstraint.activate([
+            indicator.widthAnchor.constraint(equalToConstant: 10),
+            indicator.heightAnchor.constraint(equalToConstant: 10),
+            indicator.centerYAnchor.constraint(equalTo: graphView.centerYAnchor)
+        ])
+        let position = 32 + (325 * value)
+        circleLeadingConstraint2 = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
+        circleLeadingConstraint2.isActive = true
+
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            self.updateCirclePosition2(to: position)
+        }
+        
+    }
+    
+    private func setupIndicators2(_ indicator: UIView, for graphView: UIView, with value: CGFloat) {
+        print("idk")
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.backgroundColor = .white
+        indicator.layer.borderColor = UIColor.black.cgColor
+        indicator.layer.borderWidth = 2
+        indicator.layer.cornerRadius = 5
+        graphView.addSubview(indicator)
+    
+        NSLayoutConstraint.activate([
+            indicator.widthAnchor.constraint(equalToConstant: 10),
+            indicator.heightAnchor.constraint(equalToConstant: 10),
+            indicator.centerYAnchor.constraint(equalTo: graphView.centerYAnchor)
+        ])
+        let position = 32 + (325 * value)
+        circleLeadingConstraints2 = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
+        circleLeadingConstraints2.isActive = true
+
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            self.updateCirclePositions2(to: position)
+        }
+        
+    }
+    
+    private func setupIndicatorss2(_ indicator: UIView, for graphView: UIView, with value: CGFloat) {
+        print("idk")
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.backgroundColor = .white
+        indicator.layer.borderColor = UIColor.black.cgColor
+        indicator.layer.borderWidth = 2
+        indicator.layer.cornerRadius = 5
+        graphView.addSubview(indicator)
+    
+        NSLayoutConstraint.activate([
+            indicator.widthAnchor.constraint(equalToConstant: 10),
+            indicator.heightAnchor.constraint(equalToConstant: 10),
+            indicator.centerYAnchor.constraint(equalTo: graphView.centerYAnchor)
+        ])
+        let position = 32 + (325 * value)
+        circleLeadingConstraintss2 = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
+        circleLeadingConstraintss2.isActive = true
+
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            self.updateCirclePositionss2(to: position)
+        }
+        
+    }
+    
+    func updateCirclePosition2(to position: CGFloat) {
+        circleLeadingConstraint2.constant = position
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func updateCirclePositions2(to position: CGFloat) {
+        circleLeadingConstraints2.constant = position
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func updateCirclePositionss2(to position: CGFloat) {
+        circleLeadingConstraintss2.constant = position
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    private func updateIndicators2(for color: UIColor) {
+        var hue: CGFloat = 0
+        var saturation: CGFloat = 0
+        var brightness: CGFloat = 0
+        var alpha: CGFloat = 0
+        
+        color.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
+        
+        // Update hue indicator
+        print("hue2")
+        print(hue)
+        setupIndicator2(hueIndicator, for: hueGraphView, with: hue)
+        
+        // Update saturation indicator
+        print("saturation")
+        print(saturation)
+    
+        setupIndicators2(saturationIndicator, for: saturationGraphView, with: saturation)
+        
+        // Update brightness indicator
+        print("brightness")
+        print(brightness)
+        setupIndicatorss2(brightnessIndicator, for: brightnessGraphView, with: brightness)
+    }
+    
+    private func updateGraphBackground(graphView: UIView, startColor: UIColor, endColor: UIColor) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = graphView.bounds
+        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
+        graphView.layer.sublayers?.forEach { $0.removeFromSuperlayer() }
+        graphView.layer.addSublayer(gradientLayer)
     }
 }
 
