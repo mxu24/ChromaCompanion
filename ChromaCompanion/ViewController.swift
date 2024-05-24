@@ -1059,5 +1059,4 @@ func findClosestColorName(to color: UIColor) -> String {
     }
 
     return closestColor?.name ?? "Unknown"
-    
 }
