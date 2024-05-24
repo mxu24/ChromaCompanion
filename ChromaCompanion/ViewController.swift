@@ -16,12 +16,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Setup object detector.
         let options = ObjectDetectorOptions()
         options.detectorMode = .singleImage
         options.shouldEnableMultipleObjects = false
         options.shouldEnableClassification = true
-        
         objectDetector = ObjectDetector.objectDetector(options: options)
         
         imageView.backgroundColor =  UIColor(red: 0.945, green: 0.949, blue: 0.945, alpha: 1.0)
@@ -30,23 +28,21 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didTapButton() {
-        print("didTapButton called")
-        let actionSheet = UIAlertController(title: "Select Picture", message: "Choose a source", preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: "Select Picture", message: "Choose a method", preferredStyle: .actionSheet)
         
         actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
-            self.presentImagePicker(sourceType: .camera)
+            self.getPicture(sourceType: .camera)
         }))
         
         actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { _ in
-            self.presentImagePicker(sourceType: .photoLibrary)
+            self.getPicture(sourceType: .photoLibrary)
         }))
         
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
         present(actionSheet, animated: true, completion: nil)
     }
     
-    private func presentImagePicker(sourceType: UIImagePickerController.SourceType) {
+    private func getPicture(sourceType: UIImagePickerController.SourceType) {
         let picker = UIImagePickerController()
         picker.sourceType = sourceType
         picker.allowsEditing = true
@@ -54,73 +50,52 @@ class ViewController: UIViewController {
         present(picker, animated: true)
     }
     
-    func objectDetectorProcess(image: UIImage) {
+    func doObjectDetection(image: UIImage) {
         guard let objectDetector = objectDetector else {
             return
         }
         
-        
         let visionImage = VisionImage(image: image)
         visionImage.orientation = image.imageOrientation
-        
         objectDetector.process(visionImage) { detectedObjects, error in
             guard error == nil else {
                 return
             }
-            
             guard let detectedObjects = detectedObjects,
                   !detectedObjects.isEmpty else {
-                self.performSaliencyDetection(image: image)
+                self.doSaliency(image: image)
                 return
             }
             
-            
             DispatchQueue.main.async {
-                self.setupOverlayView(image: image, detectedObjects: detectedObjects)
+                if let firstObjectFrame = detectedObjects.first?.frame {
+                            self.doCrop(for: image, with: firstObjectFrame)
+                        }
             }
         }
-        
     }
     
-    private func performSaliencyDetection(image: UIImage) {
+    private func doSaliency(image: UIImage) {
         guard let ciImage = CIImage(image: image) else { return }
-        
         let request = VNGenerateAttentionBasedSaliencyImageRequest()
-        
         let handler = VNImageRequestHandler(ciImage: ciImage, options: [:])
         do {
             try handler.perform([request])
             if let results = request.results,
                let salientObject = results.first,
                let salientRect = salientObject.salientObjects?.first?.boundingBox {
-                
-                print("Salient object at: \(salientRect)")
-                
                 let imageRect = ciImage.extent
                 let normalizedSalientRect = VNImageRectForNormalizedRect(salientRect, Int(imageRect.width), Int(imageRect.height))
-                
                 DispatchQueue.main.async {
-                    self.presentCropViewController(for: image, with: normalizedSalientRect)
+                    self.doCrop(for: image, with: normalizedSalientRect)
                 }
-
-            } else {
-                print("No salient regions found.")
             }
         } catch {
-            print("Error performing saliency request: \(error)")
+            print("Error with Saliency")
         }
     }
-
     
-    func setupOverlayView(image: UIImage, detectedObjects: [Object]) {
-        overlayView.overlayObjects = []
-        overlayView.setNeedsDisplay()
-        if let firstObjectFrame = detectedObjects.first?.frame {
-                    self.presentCropViewController(for: image, with: firstObjectFrame)
-                }
-    }
-    
-    private func presentCropViewController(for image: UIImage, with frame: CGRect) {
+    private func doCrop(for image: UIImage, with frame: CGRect) {
         let cropViewController = CropViewController(croppingStyle: .default, image: image)
         cropViewController.delegate = self
         
@@ -130,22 +105,7 @@ class ViewController: UIViewController {
                                       width: imageFrame.width * image.size.width / imageView.bounds.width,
                                       height: imageFrame.height * image.size.height / imageView.bounds.height)
         cropViewController.imageCropFrame = initialCropFrame
-        
         present(cropViewController, animated: true, completion: nil)
-    }
-    
-    private func convertToImageRect(fromViewRect viewRect: CGRect, inImage image: UIImage) -> CGRect {
-        let imageViewSize = imageView.frame.size
-        let imageSize = image.size
-        
-        let scaleX = imageSize.width / imageViewSize.width
-        let scaleY = imageSize.height / imageViewSize.height
-        
-        let imageRect = CGRect(x: viewRect.origin.x * scaleX,
-                               y: viewRect.origin.y * scaleY,
-                               width: viewRect.width * scaleX,
-                               height: viewRect.height * scaleY)
-        return imageRect
     }
 }
 
@@ -153,7 +113,7 @@ extension ViewController: CropViewControllerDelegate {
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
         cropViewController.dismiss(animated: true, completion: nil)
         imageView.image = image
-        extractColors(from: image) // Call the extractColors function with the cropped image
+        extractColors(from: image)
     }
     
     func cropViewController(_ cropViewController: CropViewController, didFinishCancelled cancelled: Bool) {
@@ -176,11 +136,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         
         DispatchQueue.main.async {
             self.imageView.image = image
-            
-            self.overlayView.overlayObjects = []
-            self.overlayView.setNeedsDisplay()
-            
-            self.objectDetectorProcess(image: image)
+            self.doObjectDetection(image: image)
         }
     }
     
@@ -198,18 +154,12 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             let detailColorName = findClosestColorName(to: detail)
             
             DispatchQueue.main.async {
-                self.presentColorAnalysisViewController(primary: primary, secondary: secondary, background: background, detail: detail, primaryName: primaryColorName, secondaryName: secondaryColorName, backgroundName: backgroundColorName, detailName: detailColorName)
+                self.goToColorAnalysis(primary: primary, secondary: secondary, background: background, detail: detail, primaryName: primaryColorName, secondaryName: secondaryColorName, backgroundName: backgroundColorName, detailName: detailColorName)
             }
-            print(backgroundColorName)
-            print(primaryColorName)
-            print(secondaryColorName)
-            print(detailColorName)
-            
-            print("Background: \(background), Primary: \(primary), Secondary: \(secondary), Detail: \(detail)")
         }
     }
     
-    private func presentColorAnalysisViewController(primary: UIColor, secondary: UIColor, background: UIColor, detail: UIColor, primaryName: String, secondaryName: String, backgroundName: String, detailName: String) {
+    private func goToColorAnalysis(primary: UIColor, secondary: UIColor, background: UIColor, detail: UIColor, primaryName: String, secondaryName: String, backgroundName: String, detailName: String) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let colorInfoVC = storyboard.instantiateViewController(withIdentifier: "ColorAnalysisViewController") as? ColorAnalysisViewController else {
             return
@@ -242,40 +192,33 @@ class ColorAnalysisViewController: UIViewController {
     
     @IBOutlet weak var hueGraphView: UIView!
     @IBOutlet weak var hueIndicator: UIView!
-    
     @IBOutlet weak var saturationGraphView: UIView!
     @IBOutlet weak var saturationIndicator: UIView!
-    
     @IBOutlet weak var brightnessGraphView: UIView!
     @IBOutlet weak var brightnessIndicator: UIView!
     
     @IBOutlet weak var hueGraphView2: UIView!
     @IBOutlet weak var hueIndicator2: UIView!
-    
     @IBOutlet weak var saturationGraphView2: UIView!
     @IBOutlet weak var saturationIndicator2: UIView!
-    
     @IBOutlet weak var brightnessGraphView2: UIView!
     @IBOutlet weak var brightnessIndicator2: UIView!
     
     @IBOutlet weak var hueGraphView3: UIView!
     @IBOutlet weak var hueIndicator3: UIView!
-    
     @IBOutlet weak var saturationGraphView3: UIView!
     @IBOutlet weak var saturationIndicator3: UIView!
-    
     @IBOutlet weak var brightnessGraphView3: UIView!
     @IBOutlet weak var brightnessIndicator3: UIView!
     
     @IBOutlet weak var hueGraphView4: UIView!
     @IBOutlet weak var hueIndicator4: UIView!
-    
     @IBOutlet weak var saturationGraphView4: UIView!
     @IBOutlet weak var saturationIndicator4: UIView!
-    
     @IBOutlet weak var brightnessGraphView4: UIView!
     @IBOutlet weak var brightnessIndicator4: UIView!
     
+    @IBOutlet weak var dominantRGB: UILabel!
     var primaryColor: UIColor?
     var secondaryColor: UIColor?
     var backgroundColor: UIColor?
@@ -285,23 +228,23 @@ class ColorAnalysisViewController: UIViewController {
     var secondaryColorName: String?
     var backgroundColorName: String?
     var detailColorName: String?
-    var circleLeadingConstraint: NSLayoutConstraint!
-    var circleLeadingConstraints: NSLayoutConstraint!
-    var circleLeadingConstraintss: NSLayoutConstraint!
-    var circleLeadingConstraint2: NSLayoutConstraint!
-    var circleLeadingConstraints2: NSLayoutConstraint!
-    var circleLeadingConstraintss2: NSLayoutConstraint!
-    var circleLeadingConstraint3: NSLayoutConstraint!
-    var circleLeadingConstraints3: NSLayoutConstraint!
-    var circleLeadingConstraintss3: NSLayoutConstraint!
-    var circleLeadingConstraint4: NSLayoutConstraint!
-    var circleLeadingConstraints4: NSLayoutConstraint!
-    var circleLeadingConstraintss4: NSLayoutConstraint!
+    
+    var circle: NSLayoutConstraint!
+    var circles: NSLayoutConstraint!
+    var circless: NSLayoutConstraint!
+    var circle2: NSLayoutConstraint!
+    var circles2: NSLayoutConstraint!
+    var circless2: NSLayoutConstraint!
+    var circle3: NSLayoutConstraint!
+    var circles3: NSLayoutConstraint!
+    var circless3: NSLayoutConstraint!
+    var circle4: NSLayoutConstraint!
+    var circles4: NSLayoutConstraint!
+    var circless4: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupGraphViews()
-        print("Background: \(backgroundColor), Primary: \(primaryColor), Secondary: \(secondaryColor), Detail: \(detailColor)")
+        
         // Set the background colors of the views to display the colors
         if let primaryColor = primaryColor {
             primaryColorView.backgroundColor = primaryColor
@@ -332,26 +275,26 @@ class ColorAnalysisViewController: UIViewController {
         backgroundColorLabel.text = backgroundColorName
         detailColorLabel.text = detailColorName
         
-        let colors = [backgroundColorName]
+        let colors = [backgroundColorName, primaryColorName]
         let groups = findGroups(for: colors)
         aestheticLabel.text = groups
-        print(groups)
+        drawGraphs()
     }
-    private func setupGraphViews() {
-        setupGraphView(hueGraphView, title: "Hue", for: backgroundColor ?? UIColor.clear)
-        setupGraphView(hueGraphView2, title: "Hue", for: primaryColor ?? UIColor.clear)
-        setupGraphView(hueGraphView3, title: "Hue", for: secondaryColor ?? UIColor.clear)
-        setupGraphView(hueGraphView4, title: "Hue", for: detailColor ?? UIColor.clear)
+    private func drawGraphs() {
+        drawHueSaturation(hueGraphView, title: "Hue", for: backgroundColor ?? UIColor.clear)
+        drawHueSaturation(hueGraphView2, title: "Hue", for: primaryColor ?? UIColor.clear)
+        drawHueSaturation(hueGraphView3, title: "Hue", for: secondaryColor ?? UIColor.clear)
+        drawHueSaturation(hueGraphView4, title: "Hue", for: detailColor ?? UIColor.clear)
         
-        setupGraphView(saturationGraphView, title: "Saturation", for: backgroundColor ?? UIColor.clear)
-        setupGraphView(saturationGraphView2, title: "Saturation", for: primaryColor ?? UIColor.clear)
-        setupGraphView(saturationGraphView3, title: "Saturation", for: secondaryColor ?? UIColor.clear)
-        setupGraphView(saturationGraphView4, title: "Saturation", for: detailColor ?? UIColor.clear)
+        drawHueSaturation(saturationGraphView, title: "Saturation", for: backgroundColor ?? UIColor.clear)
+        drawHueSaturation(saturationGraphView2, title: "Saturation", for: primaryColor ?? UIColor.clear)
+        drawHueSaturation(saturationGraphView3, title: "Saturation", for: secondaryColor ?? UIColor.clear)
+        drawHueSaturation(saturationGraphView4, title: "Saturation", for: detailColor ?? UIColor.clear)
         
-        setupBrightnessGraphView()
-        setupBrightnessGraphView2()
-        setupBrightnessGraphView3()
-        setupBrightnessGraphView4()
+        drawBrightness(brightnessGraphView, for: backgroundColor ?? UIColor.clear)
+        drawBrightness(brightnessGraphView2, for: backgroundColor ?? UIColor.clear)
+        drawBrightness(brightnessGraphView3, for: backgroundColor ?? UIColor.clear)
+        drawBrightness(brightnessGraphView4, for: backgroundColor ?? UIColor.clear)
         
         updateIndicators(for: backgroundColor ?? UIColor.clear)
         updateIndicators2(for: primaryColor ?? UIColor.clear)
@@ -365,8 +308,8 @@ class ColorAnalysisViewController: UIViewController {
             "Coastal": ["Sky Blue", "Baby Blue", "Aqua Blue", "Seafoam Green", "Sandy Beige", "Turquoise", "Navy", "Coral", "Mint Green", "Light Blue", "Light Sky Blue", "Slate Blue", "Pale Blue", "Ivory", "White", "Snow", "Silver", "Teal", "Azure Blue", "Steel Blue", "Deep Sky Blue", "Midnight Blue", "Gray Blue", "Pale Violet Red"],
             "Cottagecore": ["Blush", "Peach Puff", "Light Coral", "Misty Rose", "Peach", "Pale Peach", "Salmon", "Lavender", "Thistle", "Tan", "Ivory", "Flax", "Light Yellow", "Pale Green", "Beige", "Sandy Brown", "White", "Snow", "Raspberry", "Hot Pink", "Fuchsia", "Orchid", "Rose", "Tangerine", "Vibrant Orange", "Light Orange", "Pumpkin", "Carrot Orange", "Pastel Yellow", "Lemon", "Golden Yellow", "Gold"],
             "Emo": ["Black", "Charcoal Gray", "Blood Red", "Deep Purple", "Dark Olive", "Slate Gray", "Midnight Blue", "Dark Blue", "Dark Lavender", "Sienna", "Saddle Brown", "Maroon", "Crimson", "Firebrick", "Dark Red", "Tomato", "Plum", "Navy", "Forest Green", "Army Green", "Teal Green"],
-            "Professional": ["Navy", "Charcoal Gray", "Taupe", "Ivory", "White", "Slate Gray", "Light Gray", "Medium Gray", "Dark Gray", "Silver", "Gainsboro", "Smoke", "Black", "Dim Gray", "Burly Wood", "Peru", "Sienna", "Saddle Brown", "Chocolate", "Brown", "Tan"],
-            "Streetwear": ["Red", "Bright Red", "Vibrant Orange", "Bright Yellow", "Mustard", "Lime", "Olive", "Army Green", "Teal", "Bright Lime", "Bright Green", "Dark Green", "Yellow Green", "Burnt Orange", "Pumpkin", "Orange", "Carrot Orange", "Dark Olive", "Lemon", "Gold", "Bright Lime", "Bright Green", "Yellow Green", "Teal Green", "Sadge Green", "Navy", "Baby Blue", "Royal Blue", "Azure Blue", "Gray Blue", "Deep Sky Blue", "Slate Blue", "Dark Purple", "Violet", "Plum", "Blurple", "Light Pink", "Hot Pink", "Fuchsia", "Deep Pink", "Rose", "Coral", "Deep Pink", "Peach", "Tangerine", "Peach Puff", "Cherry Red", "Scarlet Red", "Raspberry", "Maroon", "Crimson", "Firebrick", "Tomato", "Black", "Charcoal Gray"],
+            "Professional": ["Navy", "Charcoal Gray", "Taupe", "Ivory", "White", "Slate Gray", "Light Gray", "Medium Gray", "Dark Gray", "Silver", "Gainsboro", "Smoke"],
+            "Streetwear": ["Red", "Bright Red", "Vibrant Orange", "Bright Yellow", "Mustard", "Lime", "Olive", "Army Green", "Teal", "Bright Lime", "Bright Green", "Dark Green", "Yellow Green", "Burnt Orange", "Pumpkin", "Orange", "Carrot Orange", "Dark Olive", "Lemon", "Gold", "Bright Lime", "Bright Green", "Yellow Green", "Teal Green", "Sadge Green", "Navy", "Baby Blue", "Royal Blue", "Azure Blue", "Gray Blue", "Deep Sky Blue", "Slate Blue", "Dark Purple", "Violet", "Plum", "Blurple", "Light Pink", "Hot Pink", "Fuchsia", "Deep Pink", "Rose", "Coral", "Deep Pink", "Peach", "Tangerine", "Peach Puff", "Cherry Red", "Scarlet Red", "Raspberry", "Maroon", "Crimson", "Firebrick", "Tomato", "Black", "Charcoal Gray", "Black", "Dim Gray", "Burly Wood", "Peru", "Sienna", "Saddle Brown", "Brown", "Tan"],
             "Y2K": ["Bubblegum Pink", "Baby Blue", "Sky Blue", "Lemon", "Golden Yellow", "Pastel Pink", "Pastel Yellow", "Pale Violet Red", "Orchid", "Light Pink", "Light Orange", "Pale Green", "Lavender", "Light Yellow", "Light Coral", "Light Orange", "Pastel Yellow", "Light Green", "Light Blue", "Peach Puff", "Ivory", "Flax", "White", "Snow", "Hot Pink", "Fuchsia", "Salmon", "Coral", "Tangerine", "Vibrant Orange", "Pumpkin", "Carrot Orange"]
         ]
         
@@ -384,12 +327,11 @@ class ColorAnalysisViewController: UIViewController {
         return foundGroups.joined(separator: ", ")
     }
     
-    private func setupGraphView(_ graphView: UIView, title: String, for color: UIColor) {
+    private func drawHueSaturation(_ graphView: UIView, title: String, for color: UIColor) {
         var hue: CGFloat = 0
         var saturation: CGFloat = 0
         var brightness: CGFloat = 0
         var alpha: CGFloat = 0
-        
         color.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
         
         let gradientLayer = CAGradientLayer()
@@ -411,55 +353,16 @@ class ColorAnalysisViewController: UIViewController {
         graphView.layer.addSublayer(gradientLayer)
     }
     
-    private func setupBrightnessGraphView() {
+    private func drawBrightness(_ graphView: UIView, for color: UIColor) {
         let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = brightnessGraphView.bounds
+        gradientLayer.frame = graphView.bounds
         gradientLayer.colors = [
             UIColor.black.cgColor,
             UIColor.white.cgColor
         ]
         gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
         gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
-        brightnessGraphView.layer.addSublayer(gradientLayer)
-
-    }
-    
-    private func setupBrightnessGraphView2() {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = brightnessGraphView2.bounds
-        gradientLayer.colors = [
-            UIColor.black.cgColor,
-            UIColor.white.cgColor
-        ]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
-        brightnessGraphView2.layer.addSublayer(gradientLayer)
-
-    }
-    
-    private func setupBrightnessGraphView3() {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = brightnessGraphView3.bounds
-        gradientLayer.colors = [
-            UIColor.black.cgColor,
-            UIColor.white.cgColor
-        ]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
-        brightnessGraphView3.layer.addSublayer(gradientLayer)
-
-    }
-    
-    private func setupBrightnessGraphView4() {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = brightnessGraphView4.bounds
-        gradientLayer.colors = [
-            UIColor.black.cgColor,
-            UIColor.white.cgColor
-        ]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
-        brightnessGraphView4.layer.addSublayer(gradientLayer)
+        graphView.layer.addSublayer(gradientLayer)
 
     }
     
@@ -477,11 +380,14 @@ class ColorAnalysisViewController: UIViewController {
             indicator.centerYAnchor.constraint(equalTo: graphView.centerYAnchor)
         ])
         let position = 32 + (325 * value)
-        circleLeadingConstraint = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
-        circleLeadingConstraint.isActive = true
+        circle = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
+        circle.isActive = true
 
         DispatchQueue.main.asyncAfter(deadline: .now()) {
-            self.updateCirclePosition(to: position)
+            self.circle.constant = position
+            UIView.animate(withDuration: 0.3) {
+                self.view.layoutIfNeeded()
+            }
         }
         
     }
@@ -500,11 +406,14 @@ class ColorAnalysisViewController: UIViewController {
             indicator.centerYAnchor.constraint(equalTo: graphView.centerYAnchor)
         ])
         let position = 32 + (325 * value)
-        circleLeadingConstraints = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
-        circleLeadingConstraints.isActive = true
+        circles = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
+        circles.isActive = true
 
         DispatchQueue.main.asyncAfter(deadline: .now()) {
-            self.updateCirclePositions(to: position)
+            self.circles.constant = position
+            UIView.animate(withDuration: 0.3) {
+                self.view.layoutIfNeeded()
+            }
         }
         
     }
@@ -523,34 +432,16 @@ class ColorAnalysisViewController: UIViewController {
             indicator.centerYAnchor.constraint(equalTo: graphView.centerYAnchor)
         ])
         let position = 32 + (325 * value)
-        circleLeadingConstraintss = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
-        circleLeadingConstraintss.isActive = true
+        circless = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
+        circless.isActive = true
 
         DispatchQueue.main.asyncAfter(deadline: .now()) {
-            self.updateCirclePositionss(to: position)
+            self.circless.constant = position
+            UIView.animate(withDuration: 0.3) {
+                self.view.layoutIfNeeded()
+            }
         }
         
-    }
-    
-    func updateCirclePosition(to position: CGFloat) {
-        circleLeadingConstraint.constant = position
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
-        }
-    }
-    
-    func updateCirclePositions(to position: CGFloat) {
-        circleLeadingConstraints.constant = position
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
-        }
-    }
-    
-    func updateCirclePositionss(to position: CGFloat) {
-        circleLeadingConstraintss.constant = position
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
-        }
     }
     
     private func updateIndicators(for color: UIColor) {
@@ -560,14 +451,8 @@ class ColorAnalysisViewController: UIViewController {
         var alpha: CGFloat = 0
         
         color.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
-        
-        // Update hue indicator
         setupIndicator(hueIndicator, for: hueGraphView, with: hue)
-        
-        // Update saturation indicator
         setupIndicators(saturationIndicator, for: saturationGraphView, with: saturation)
-        
-        // Update brightness indicator
         setupIndicatorss(brightnessIndicator, for: brightnessGraphView, with: brightness)
     }
     
@@ -585,11 +470,14 @@ class ColorAnalysisViewController: UIViewController {
             indicator.centerYAnchor.constraint(equalTo: graphView.centerYAnchor)
         ])
         let position = 32 + (325 * value)
-        circleLeadingConstraint2 = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
-        circleLeadingConstraint2.isActive = true
+        circle2 = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
+        circle2.isActive = true
 
         DispatchQueue.main.asyncAfter(deadline: .now()) {
-            self.updateCirclePosition2(to: position)
+            self.circle2.constant = position
+            UIView.animate(withDuration: 0.3) {
+                self.view.layoutIfNeeded()
+            }
         }
         
     }
@@ -608,11 +496,14 @@ class ColorAnalysisViewController: UIViewController {
             indicator.centerYAnchor.constraint(equalTo: graphView.centerYAnchor)
         ])
         let position = 32 + (325 * value)
-        circleLeadingConstraints2 = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
-        circleLeadingConstraints2.isActive = true
+        circles2 = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
+        circles2.isActive = true
 
         DispatchQueue.main.asyncAfter(deadline: .now()) {
-            self.updateCirclePositions2(to: position)
+            self.circles2.constant = position
+            UIView.animate(withDuration: 0.3) {
+                self.view.layoutIfNeeded()
+            }
         }
         
     }
@@ -631,34 +522,16 @@ class ColorAnalysisViewController: UIViewController {
             indicator.centerYAnchor.constraint(equalTo: graphView.centerYAnchor)
         ])
         let position = 32 + (325 * value)
-        circleLeadingConstraintss2 = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
-        circleLeadingConstraintss2.isActive = true
+        circless2 = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
+        circless2.isActive = true
 
         DispatchQueue.main.asyncAfter(deadline: .now()) {
-            self.updateCirclePositionss2(to: position)
+            self.circless2.constant = position
+            UIView.animate(withDuration: 0.3) {
+                self.view.layoutIfNeeded()
+            }
         }
         
-    }
-    
-    func updateCirclePosition2(to position: CGFloat) {
-        circleLeadingConstraint2.constant = position
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
-        }
-    }
-    
-    func updateCirclePositions2(to position: CGFloat) {
-        circleLeadingConstraints2.constant = position
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
-        }
-    }
-    
-    func updateCirclePositionss2(to position: CGFloat) {
-        circleLeadingConstraintss2.constant = position
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
-        }
     }
     
     private func updateIndicators2(for color: UIColor) {
@@ -668,14 +541,9 @@ class ColorAnalysisViewController: UIViewController {
         var alpha: CGFloat = 0
         
         color.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
-        
-        // Update hue indicator
+
         setupIndicator2(hueIndicator2, for: hueGraphView2, with: hue)
-        
-        // Update saturation indicator
         setupIndicators2(saturationIndicator2, for: saturationGraphView2, with: saturation)
-        
-        // Update brightness indicator
         setupIndicatorss2(brightnessIndicator2, for: brightnessGraphView2, with: brightness)
     }
     
@@ -693,11 +561,14 @@ class ColorAnalysisViewController: UIViewController {
             indicator.centerYAnchor.constraint(equalTo: graphView.centerYAnchor)
         ])
         let position = 32 + (325 * value)
-        circleLeadingConstraint3 = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
-        circleLeadingConstraint3.isActive = true
+        circle3 = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
+        circle3.isActive = true
 
         DispatchQueue.main.asyncAfter(deadline: .now()) {
-            self.updateCirclePosition3(to: position)
+            self.circle3.constant = position
+            UIView.animate(withDuration: 0.3) {
+                self.view.layoutIfNeeded()
+            }
         }
         
     }
@@ -716,11 +587,14 @@ class ColorAnalysisViewController: UIViewController {
             indicator.centerYAnchor.constraint(equalTo: graphView.centerYAnchor)
         ])
         let position = 32 + (325 * value)
-        circleLeadingConstraints3 = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
-        circleLeadingConstraints3.isActive = true
+        circles3 = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
+        circles3.isActive = true
 
         DispatchQueue.main.asyncAfter(deadline: .now()) {
-            self.updateCirclePositions3(to: position)
+            self.circles3.constant = position
+            UIView.animate(withDuration: 0.3) {
+                self.view.layoutIfNeeded()
+            }
         }
         
     }
@@ -739,34 +613,16 @@ class ColorAnalysisViewController: UIViewController {
             indicator.centerYAnchor.constraint(equalTo: graphView.centerYAnchor)
         ])
         let position = 32 + (325 * value)
-        circleLeadingConstraintss3 = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
-        circleLeadingConstraintss3.isActive = true
+        circless3 = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
+        circless3.isActive = true
 
         DispatchQueue.main.asyncAfter(deadline: .now()) {
-            self.updateCirclePositionss3(to: position)
+            self.circless3.constant = position
+            UIView.animate(withDuration: 0.3) {
+                self.view.layoutIfNeeded()
+            }
         }
         
-    }
-    
-    func updateCirclePosition3(to position: CGFloat) {
-        circleLeadingConstraint3.constant = position
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
-        }
-    }
-    
-    func updateCirclePositions3(to position: CGFloat) {
-        circleLeadingConstraints3.constant = position
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
-        }
-    }
-    
-    func updateCirclePositionss3(to position: CGFloat) {
-        circleLeadingConstraintss3.constant = position
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
-        }
     }
     
     private func updateIndicators3(for color: UIColor) {
@@ -777,13 +633,8 @@ class ColorAnalysisViewController: UIViewController {
         
         color.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
         
-        // Update hue indicator
         setupIndicator3(hueIndicator3, for: hueGraphView3, with: hue)
-        
-        // Update saturation indicator
         setupIndicators3(saturationIndicator3, for: saturationGraphView3, with: saturation)
-        
-        // Update brightness indicator
         setupIndicatorss3(brightnessIndicator3, for: brightnessGraphView3, with: brightness)
     }
     
@@ -801,11 +652,14 @@ class ColorAnalysisViewController: UIViewController {
             indicator.centerYAnchor.constraint(equalTo: graphView.centerYAnchor)
         ])
         let position = 32 + (325 * value)
-        circleLeadingConstraint4 = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
-        circleLeadingConstraint4.isActive = true
+        circle4 = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
+        circle4.isActive = true
 
         DispatchQueue.main.asyncAfter(deadline: .now()) {
-            self.updateCirclePosition4(to: position)
+            self.circle4.constant = position
+            UIView.animate(withDuration: 0.3) {
+                self.view.layoutIfNeeded()
+            }
         }
         
     }
@@ -824,11 +678,14 @@ class ColorAnalysisViewController: UIViewController {
             indicator.centerYAnchor.constraint(equalTo: graphView.centerYAnchor)
         ])
         let position = 32 + (325 * value)
-        circleLeadingConstraints4 = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
-        circleLeadingConstraints4.isActive = true
+        circles4 = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
+        circles4.isActive = true
 
         DispatchQueue.main.asyncAfter(deadline: .now()) {
-            self.updateCirclePositions4(to: position)
+            self.circles4.constant = position
+            UIView.animate(withDuration: 0.3) {
+                self.view.layoutIfNeeded()
+            }
         }
         
     }
@@ -847,36 +704,18 @@ class ColorAnalysisViewController: UIViewController {
             indicator.centerYAnchor.constraint(equalTo: graphView.centerYAnchor)
         ])
         let position = 32 + (325 * value)
-        circleLeadingConstraintss4 = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
-        circleLeadingConstraintss4.isActive = true
+        circless4 = indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
+        circless4.isActive = true
 
         DispatchQueue.main.asyncAfter(deadline: .now()) {
-            self.updateCirclePositionss4(to: position)
+            self.circless4.constant = position
+            UIView.animate(withDuration: 0.3) {
+                self.view.layoutIfNeeded()
+            }
         }
         
     }
-    
-    func updateCirclePosition4(to position: CGFloat) {
-        circleLeadingConstraint4.constant = position
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
-        }
-    }
-    
-    func updateCirclePositions4(to position: CGFloat) {
-        circleLeadingConstraints4.constant = position
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
-        }
-    }
-    
-    func updateCirclePositionss4(to position: CGFloat) {
-        circleLeadingConstraintss4.constant = position
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
-        }
-    }
-    
+        
     private func updateIndicators4(for color: UIColor) {
         var hue: CGFloat = 0
         var saturation: CGFloat = 0
@@ -884,25 +723,10 @@ class ColorAnalysisViewController: UIViewController {
         var alpha: CGFloat = 0
         
         color.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
-        
-        // Update hue indicator
+
         setupIndicator4(hueIndicator4, for: hueGraphView4, with: hue)
-        
-        // Update saturation indicator
         setupIndicators4(saturationIndicator4, for: saturationGraphView4, with: saturation)
-        
-        // Update brightness indicator
         setupIndicatorss4(brightnessIndicator4, for: brightnessGraphView4, with: brightness)
-    }
-    
-    private func updateGraphBackground(graphView: UIView, startColor: UIColor, endColor: UIColor) {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = graphView.bounds
-        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
-        graphView.layer.sublayers?.forEach { $0.removeFromSuperlayer() }
-        graphView.layer.addSublayer(gradientLayer)
     }
 }
 
@@ -1169,13 +993,13 @@ let predefinedColors: [ColorName] = [
     ColorName(name: "Black", red: 0.0, green: 0.0, blue: 0.0),
     ColorName(name: "Black", red: 0.11, green: 0.11, blue: 0.11),
     ColorName(name: "Black", red: 0.11, green: 0.11, blue: 0.11),
-    ColorName(name: "Light Gray", red: 0.80, green: 0.80, blue: 0.80),
-    ColorName(name: "Light Gray", red: 0.81, green: 0.81, blue: 0.81),
-    ColorName(name: "Light Gray", red: 0.82, green: 0.82, blue: 0.82),
-    ColorName(name: "Light Gray", red: 0.79, green: 0.79, blue: 0.79),
-    ColorName(name: "Light Gray", red: 0.78, green: 0.78, blue: 0.78),
-    ColorName(name: "Light Gray", red: 0.827, green: 0.827, blue: 0.827),
-    ColorName(name: "Light Gray", red: 0.867, green: 0.867, blue: 0.867),
+    ColorName(name: "White", red: 0.80, green: 0.80, blue: 0.80),
+    ColorName(name: "White", red: 0.81, green: 0.81, blue: 0.81),
+    ColorName(name: "White", red: 0.82, green: 0.82, blue: 0.82),
+    ColorName(name: "White", red: 0.79, green: 0.79, blue: 0.79),
+    ColorName(name: "White", red: 0.78, green: 0.78, blue: 0.78),
+    ColorName(name: "White", red: 0.827, green: 0.827, blue: 0.827),
+    ColorName(name: "White", red: 0.867, green: 0.867, blue: 0.867),
     ColorName(name: "Medium Gray", red: 0.61, green: 0.61, blue: 0.61),
     ColorName(name: "Medium Gray", red: 0.62, green: 0.62, blue: 0.62),
     ColorName(name: "Medium Gray", red: 0.60, green: 0.60, blue: 0.60),
@@ -1210,35 +1034,30 @@ let predefinedColors: [ColorName] = [
 
 ]
 
-func euclideanDistance(color1: (CGFloat, CGFloat, CGFloat), color2: (CGFloat, CGFloat, CGFloat)) -> CGFloat {
+//Distance Calculator for colors
+func calcDistance(color1: (CGFloat, CGFloat, CGFloat), color2: (CGFloat, CGFloat, CGFloat)) -> CGFloat {
     return sqrt(pow(color1.0 - color2.0, 2) + pow(color1.1 - color2.1, 2) + pow(color1.2 - color2.2, 2))
 }
 
+//Find the color name closest to the RGB values
 func findClosestColorName(to color: UIColor) -> String {
     guard let components = color.cgColor.components, components.count >= 3 else {
         return "Unknown"
     }
-    
-    let inputColor = (components[0], components[1], components[2])
+
     var closestColor: ColorName?
     var smallestDistance: CGFloat = .greatestFiniteMagnitude
     
     for predefinedColor in predefinedColors {
         let predefinedRGB = (predefinedColor.red, predefinedColor.green, predefinedColor.blue)
-        let distance = euclideanDistance(color1: inputColor, color2: predefinedRGB)
+        let distance = calcDistance(color1: (components[0], components[1], components[2]), color2: predefinedRGB)
         
         if distance < smallestDistance {
             smallestDistance = distance
             closestColor = predefinedColor
         }
     }
+
+    return closestColor?.name ?? "Unknown"
     
-    if let closestColor = closestColor {
-        let redValue = Int(closestColor.red * 255)
-        let greenValue = Int(closestColor.green * 255)
-        let blueValue = Int(closestColor.blue * 255)
-        return "\(closestColor.name) (\(redValue), \(greenValue), \(blueValue))"
-    } else {
-        return "Unknown"
-    }
 }

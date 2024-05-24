@@ -63,14 +63,14 @@
         <scene sceneID="TXA-kf-Bep">
             <objects>
                 <viewController storyboardIdentifier="ColorAnalysisViewController" title="Color Analysis" id="Hjg-On-egj" customClass="ColorAnalysisViewController" customModule="ChromaCompanion" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="PtQ-QG-3Mh">
+                    <view key="view" contentMode="scaleToFill" id="PtQ-QG-3Mh">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tqc-uA-fKK">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tqc-uA-fKK">
                                 <rect key="frame" x="0.0" y="103" width="393" height="749"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k2W-XD-VHr">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k2W-XD-VHr">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="2000"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ib1-Xa-2PJ">
@@ -83,6 +83,15 @@
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iJb-qD-f4a">
                                                 <rect key="frame" x="115" y="58" width="163" height="100"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAd-Rg-Ftg">
+                                                        <rect key="frame" x="84" y="79" width="79" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1NM-HW-bTN">
@@ -569,9 +578,6 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="2500" id="frG-To-Jc8" userLabel="height = 3000"/>
-                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -597,7 +603,7 @@
                     <navigationItem key="navigationItem" title="Color Analysis" id="qUY-OA-MVS" userLabel="Color Analysis"/>
                     <size key="freeformSize" width="393" height="852"/>
                     <connections>
-                        <outlet property="aestheticLabel" destination="W2A-Uq-c1N" id="A9s-my-rfN"/>
+                        <outlet property="aestheticLabel" destination="W2A-Uq-c1N" id="0cr-In-W2H"/>
                         <outlet property="backgroundColorLabel" destination="Ib1-Xa-2PJ" id="Gt4-ED-LiA"/>
                         <outlet property="backgroundColorView" destination="iJb-qD-f4a" id="zvU-7F-5JX"/>
                         <outlet property="brightnessGraphView" destination="Xee-oK-Lvb" id="vm2-kM-b2r"/>
@@ -610,6 +616,7 @@
                         <outlet property="brightnessIndicator4" destination="reK-Xb-P9n" id="kp3-8O-SQE"/>
                         <outlet property="detailColorLabel" destination="v6u-W6-pta" id="KpG-UL-7Cv"/>
                         <outlet property="detailColorView" destination="9Sz-Lb-N1Y" id="7hb-oZ-IH4"/>
+                        <outlet property="dominantRGB" destination="xAd-Rg-Ftg" id="iD2-2i-TU1"/>
                         <outlet property="hueGraphView" destination="1NM-HW-bTN" id="m3g-Tw-1z7"/>
                         <outlet property="hueGraphView2" destination="PHh-bY-XmU" id="aLw-c6-3kZ"/>
                         <outlet property="hueGraphView3" destination="7Ga-ne-JZe" id="e4J-Rs-dYc"/>
